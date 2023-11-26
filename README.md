@@ -1,6 +1,8 @@
 # Audiora
 Proyecto semestral de Ingenieria web y Mantenimiento de Software.
 
+https://docs.github.com/es/get-started/writing-on-github/getting-started-with-writing-and-formatting-on-github/basic-writing-and-formatting-syntax
+
 Integrantes:
 Alejandro González
 

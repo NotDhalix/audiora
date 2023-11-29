@@ -1,17 +1,14 @@
-# Audiora
-Proyecto semestral de Ingenieria web y Mantenimiento de Software.
+# Audiora :notes:
 
-https://docs.github.com/es/get-started/writing-on-github/getting-started-with-writing-and-formatting-on-github/basic-writing-and-formatting-syntax
+## Proyecto semestral de Ingenieria web y Mantenimiento de Software. :computer:
 
-Integrantes:
-Alejandro González
+## Integrantes:
 
-Alfonso Rodríguez
+- _Alejandro González_
+- _Alfonso Rodríguez_
+- _Jordy Rosales_
+- _Nicole Valdés_
 
-Jordy Rosales
+## Grupo: 1SF133
 
-Nicole Valdés
-
-Grupo: 1SF133
-
-UTP II SEMESTRE 2023
+## UTP II SEMESTRE 2023

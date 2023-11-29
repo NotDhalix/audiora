@@ -30,6 +30,21 @@ header .menu_side,
   color: aliceblue;
 }
 
+header .menu_side .logo_audiora {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  padding-top: 15px;
+  /* border: 1px solid #fff; */
+}
+
+header .menu_side .logo_audiora img {
+  height: 32px;
+  width: 32px;
+  margin-right: 15px;
+}
+
 header .song_side {
   width: 75%;
   background-color: #0b1320;
@@ -40,11 +55,11 @@ header .master_play {
   height: 10%;
   /* border: 1px solid #fff; */
   background-color: #111727;
+  z-index: 1;
 }
 
 header .menu_side h1 {
   font-size: 20px;
-  margin: 15px 0px 0px 20px;
   font-weight: 500;
 }
 header .menu_side .playlist {

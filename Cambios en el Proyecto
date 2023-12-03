@@ -1,0 +1,70 @@
+Nuevas modiciaciones
+
+Registro e Inicio de Sesión:
+ obligatorio solo usuario. Se quita tanto el rol de artista y el de admin.
+
+La aplicación pasa a ser reproductor local:
+El usuario puede subir sus propias canciones con el artista y hacer sus modificaciones.
+
+Creación de Album:
+Debe tener imagen del artista
+Puede subir el listado de canciones directamente con el logo de la pagina en la portada de cada una como default. Tiene una opción para añadir portada a la imagen desde el perfil.
+Puede subir cada canción con su portada.
+
+Portada Principal:(Se tomará de ejemplo el reproductor de Windows)
+Menu con tres opicones
+
+Menu Canciones:
+(Aparecerá como la página principal default)
+Botón Añadir Canción en la parte superior.
+Al hacer clic en el botón uno puede añadir manualmente el título de la música, un artista o más si tiene(Si el artista no está en la sección de artistas debe añadirlo primero) y el archivo.
+Puede no colocar artista en la canción y aparecerá en la sección de artistas como "Artistas Desconocidos" 
+(Opcional que el usuario pueda añadirle portada a la canción)
+Si el usuario no coloca título y archivo a la canción no podrá añadirla.
+Abajo del botón se encontrará el listado con todas las canciones.
+(Opcional que se visualice el listado ordenado alfabeticamente)
+El listado de canciones tendra de forma horizontal la descripción:
+Título, Artista(Puede haber más de uno), Fecha de Creación, Duración
+Se podrá darle clic derecho a una canción y poder editarla o eliminarla.
+(Se podrá editar título y artista e igual si el artista colocado no aparece en el listado de artistas le mandará error)
+(Opcional el usuario podrá editar portada de la canción)
+En la parte de abajo se mostrará la reproducción de la canción tal cual como aparece en la página Audiora.
+(Opcional debe haber un botón para reproducir el listado de canciones automáticamente desde la primera)
+
+Menu Artistas:
+(Al dar clic en el menu "Artistas" lo dirigirá a la sessión de Aristas.)
+Botón Añadir Artista en la parte superior.
+Al hacer clic en el botón uno puede añadir manualmente un artista.
+Puede no colocarle imagen al artista y aparecerá en la sección de artistas sin imagen.
+Si el usuario no coloca nombre del artista no puede añadirlo.
+Abajo del botón se encontrará los albums de cada artista con su imagen de portada(si tiene imagen sino aparecerá sin portada).
+En cada album al hacer clic se encontrará un listado de canciones de ese artista añadidas por el usuario junto con la portada del artista en la parte superior.
+El listado de canciones tendra de forma horizontal la descripción:
+Título, Artista(Puede haber más de uno), Fecha de Creación, Duración
+(Opcional que se visualice el listado ordenado alfabeticamente).
+(Opcional que también se puede dar clic derecho en la canción y poder editarla o eliminarla)
+Se podrá car clic derecho a un album y poder editar su portada o eliminarlo.
+Si se elimina un artista se eliminará junto con sus canciones.
+En la parte de abajo se mostrará la reproducción de la canción tal cual como aparece en la página Audiora.
+(Opcional debe haber un botón para reproducir el listado de canciones automáticamente desde la primera)
+
+Menu Cerrar Sesión:
+Este menú es mas que nada para que el usuario salga de su cuenta.
+(Opcional le aparecerá una ventana emergente preguntándole si de verdad quiere cerrar sesión).
+
+Sección de la izquierda de la página principal: (Sigue en discusión)
+En esta sessión de mostrará el historial de canciones escuchadas
+(Opcional se mostrará también las canciones más escuchadas)
+
+Otras observaciones:
+Se quitará la imagen del usuario que está a la derecha porque no es necesario que ponga una foto de perfil.
+En su reemplazo se pondrá un título con su nombre de usuario en la parte derecha.
+
+La barra de búsqueda solo aparecerá en la sessión de Canciones para buscar alguna canción.
+Al momento de buscar esa canción deberá aparecer esa cancion.
+(Opcional si colocó ejm: "ar" deben salir las canciones que en sus letras contengan "ar".
+(Opcional la sessión de Artistas también tendrá una barra de búsqueda para buscar artista).
+
+OJO: PARA QUE ESTE PROYECTO FUNCIONE SE DEBE REALIZAR LA BASE DE DATOS CORRECTAMENTE POR LO TANTO EL PROYECTO ESTÁ ABIERTO PARA NUEVOS CAMBIOS HASTA HOY O MAÑANA
+
+

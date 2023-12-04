@@ -16,7 +16,7 @@
     <header>
         <div class="menu_side">
             <div class="logo_audiora">
-                <img src="img/logo.png" alt="Logo de la empresa" width="32px" height="32px" />
+                <img src="img/logo.png" alt="Logo de Audiora" />
                 <h1>Audiora Music</h1>
             </div>
             <div class="playlist">

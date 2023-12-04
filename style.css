@@ -855,6 +855,7 @@ header .menu_side,
   box-shadow: 5px 0px 2px #090f1f;
   color: #fff;
 }
+
 header .menu_side .logo_audiora {
   display: flex;
   align-items: center;
@@ -869,6 +870,7 @@ header .menu_side .logo_audiora img {
   width: 32px;
   margin-right: 15px;
 }
+
 header .song_side {
   width: 75%;
   background: #0b1320;

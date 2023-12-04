@@ -1,4 +1,4 @@
-<?php 
+<?php
 session_start();
 
 include('db_connect.php');
@@ -15,15 +15,14 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
             mysqli_query($con, $query);
             header("Location: index.php");
         } else {
-            $msg = "Password Not Match";
+            $msg = "Contraseña no coincide.";
         }
     }
-
 }
 ?>
 
 <!DOCTYPE html>
-<html lang="en">
+<html lang="es">
 
 <head>
     <meta charset="UTF-8">
@@ -31,46 +30,46 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.8.3/font/bootstrap-icons.css">
     <link rel="stylesheet" href="style.css">
-    <title>Music Website Sign Up </title>
+    <title>Registrarse | Audiora </title>
 </head>
 
 <body>
     <header>
-       <div class="left_bx1">
-        <div class="content">
-            <form method="post">
-                <h3>Sign Up</h3>
-                <div class="card">
-                    <label for="name">Name</label>
-                    <input type="text" name="user_name" placeholder="Enter Your Username..." required>
-                </div>
-                <div class="card">
-                    <label for="email">Email</label>
-                    <input type="email" name="user_email" placeholder="Enter Your Email..." required>
-                </div>
-                <div class="card">
-                    <label for="password">Password</label>
-                    <input type="password" name="user_password" placeholder="Enter Your Password..." required>
-                </div>
-                <div class="card">
-                    <label for="re-password">Re-Password</label>
-                    <input type="password" name="user_re_password" placeholder="Enter Your Re-Password..." required>
-                </div>
-                <input type="submit" value="Sign Up" class="submit">
-                <div class="check">
-                    <input type="checkbox" name="" id=""><span>Remeber Me.</span>
-                </div>
-                <p>You have a account? <a href="index.php">Login</a></p>
-            </form>
+        <div class="left_bx1">
+            <div class="content">
+                <form method="post">
+                    <h3>Registrarte</h3>
+                    <div class="card">
+                        <label for="name">Nombre</label>
+                        <input type="text" name="user_name" placeholder="" required>
+                    </div>
+                    <div class="card">
+                        <label for="email">Correo electrónico</label>
+                        <input type="email" name="user_email" placeholder="" required>
+                    </div>
+                    <div class="card">
+                        <label for="password">Contraseña</label>
+                        <input type="password" name="user_password" placeholder="" required>
+                    </div>
+                    <div class="card">
+                        <label for="re-password">Ingrese de nuevo la contraseña</label>
+                        <input type="password" name="user_re_password" placeholder="" required>
+                    </div>
+                    <input type="submit" value="Registrarme" class="submit">
+                    <div class="check">
+                        <input type="checkbox" name="" id=""><span>Recordar sesión.</span>
+                    </div>
+                    <p>¿Ya tienes una cuenta? <a href="index.php">Iniciar Sesión</a></p>
+                </form>
+            </div>
         </div>
-       </div>
-       <div class="right_bx1">
-        <img src="login_png.jpg" alt="">
-        <!-- <h3>Inccorect Password</h3> -->
-        <?php
-        echo ('<h3>'.$msg.'</h3>');
-        ?>
-       </div>
+        <div class="right_bx1">
+            <img src="login_png.jpg" alt="">
+            <!-- <h3>Inccorect Password</h3> -->
+            <?php
+            echo ('<h3>' . $msg . '</h3>');
+            ?>
+        </div>
     </header>
 </body>
 

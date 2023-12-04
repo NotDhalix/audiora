@@ -15,6 +15,7 @@
 <body>
     <header>
         <div class="menu_side">
+            <h6 id="menu_list_active_button"><i class="bi bi-music-note-list"></i></h6>
             <div class="logo_audiora">
                 <img src="img/logo.png" alt="Logo de Audiora" />
                 <h1>Audiora Music</h1>
@@ -255,7 +256,7 @@
                 </div>
                 <div class="item Artists_bx">
                     <li>
-                        <a href="arjit.html"><img src="img/arjit.jpg" alt=""></a>
+                        <a href="arjit.php"><img src="img/arjit.jpg" alt=""></a>
                     </li>
                     <li>
                         <img src="img/alan.jpg" alt="">

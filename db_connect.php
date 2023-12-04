@@ -1,4 +1,4 @@
-<?php 
+<?php
 
 $server_name = "localhost";
 $user_name = 'root';
@@ -8,11 +8,9 @@ $database_name = "music_user";
 $con  = mysqli_connect($server_name, $user_name, $user_pass, $database_name);
 
 if (!$con) {
-    die ('Connection Failed' . mysql_error());
-} 
+    die('Connection Failed');
+}
 
 // else {
 //     echo ('Database Succesfully Connected');
 // }
-
-?>

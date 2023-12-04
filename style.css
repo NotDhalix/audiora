@@ -342,7 +342,6 @@ header .master_play .bar .bar2 {
   width: 0%;
   height: 100%;
   top: 0;
-  transition: 1s linear;
 }
 
 header .master_play .bar .dot {
@@ -353,7 +352,6 @@ header .master_play .bar .dot {
   border-radius: 50%;
   left: 0%;
   top: -1.5px;
-  transition: 1s linear;
 }
 
 header .master_play .bar .dot::before {
@@ -411,7 +409,6 @@ header .master_play .vol .vol_bar {
   width: 100%;
   height: 100%;
   top: 0;
-  transition: 1s linear;
 }
 
 header .master_play .vol .dot {
@@ -422,7 +419,6 @@ header .master_play .vol .dot {
   border-radius: 50%;
   left: 100%;
   top: -1.5px;
-  transition: 1s linear;
 }
 
 header .master_play .vol .dot::before {

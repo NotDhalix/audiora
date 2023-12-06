@@ -15,7 +15,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
             mysqli_query($con, $query);
             header("Location: index.php");
         } else {
-            $msg = "Contraseña no coincide.";
+            $msg = "Credenciales Incorrectas.";
         }
     }
 }

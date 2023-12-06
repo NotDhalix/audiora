@@ -21,9 +21,7 @@
                 <h1>Audiora Music</h1>
             </div>
             <div class="playlist">
-                <h4 class="active"><span></span><i class="bi bi-music-note-beamed"></i> Playlist</h4>
-                <h4><span></span><i class="bi bi-music-note-beamed"></i> Last Listening</h4>
-                <h4><span></span><i class="bi bi-music-note-beamed"></i> Recommended</h4>
+                <h4 class="active"><span></span><i class="bi bi-music-note-beamed"></i> Historial</h4>
             </div>
             <div class="menu_song">
                 <li class="songItem">
@@ -89,8 +87,8 @@
             <nav>
                 <ul>
                     <li>Discover <span></span></li>
-                    <li>MY LIBRARY</li>
-                    <li>RADIO</li>
+                    <li>Canciones</li>
+                    <li>Artistas</li>
                 </ul>
                 <div class="search">
                     <i class="bi bi-search"></i>
@@ -105,9 +103,20 @@
                         </a> -->
                     </div>
                 </div>
-                <div class="user">
-                    <img src="img/KDS CODER.png" alt="">
+                <div id="profile-container">
+                    <img src="img/pre-avatar.jpg" alt="Imagen de perfil" id="profile-image">
+                    <div id="profile-menu">
+                        <ul>
+                            <a href="#">
+                                <li>Editar Perfil</li>
+                            </a>
+                            <a href="logout.php">
+                                <li>Cerrar Sesión</li>
+                            </a>
+                        </ul>
+                    </div>
                 </div>
+
             </nav>
             <div class="content">
                 <h1>Alen Walker-Fade</h1>

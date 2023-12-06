@@ -14,7 +14,7 @@ if (isset($_POST['user_name'])) {
     if (mysqli_num_rows($result) == 1) {
         header('Location: welcome.php');
     } else {
-        $msg = "Contraseña Incorrecta.";
+        $msg = "Credenciales incorrectas.";
     }
 }
 

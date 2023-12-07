@@ -11,12 +11,18 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
 
     if (!empty($user_name) && !empty($user_email) && !empty($user_password) &&  !is_numeric($user_name)) {
         if ($user_password === $user_re_password) {
-            $query = "insert into user (user, email, password) VALUES ('$user_name', '$user_email', '$user_password')";
+
+            $default_image_path = 'img/pre-avatar.jpg';
+
+            $query = "INSERT INTO usuarios (NombreUsuario, Correo, Contraseña, ImagenPerfil) VALUES ('$user_name', '$user_email', '$user_password', '$default_image_path')";
             mysqli_query($con, $query);
+
             header("Location: index.php");
         } else {
-            $msg = "Credenciales Incorrectas.";
+            $msg = "Las contraseñas no coinciden.";
         }
+    } else {
+        $msg = "Ingresa información válida.";
     }
 }
 ?>
@@ -57,7 +63,6 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
                     </div>
                     <input type="submit" value="Registrarme" class="submit">
                     <div class="check">
-                        <input type="checkbox" name="" id=""><span>Recordar sesión.</span>
                     </div>
                     <p>¿Ya tienes una cuenta? <a href="index.php">Iniciar Sesión</a></p>
                 </form>

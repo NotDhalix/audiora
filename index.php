@@ -1,25 +1,28 @@
 <?php
-
 session_start();
 
 include('db_connect.php');
+
 $msg = false;
+
 if (isset($_POST['user_name'])) {
     $user_name = $_POST['user_name'];
     $user_password = $_POST['user_password'];
 
-    $query = "select * from user where user = '" . $user_name . "' AND password = '" . $user_password . "' limit 1";
+    $query = "SELECT * FROM usuarios WHERE NombreUsuario = '" . $user_name . "' AND Contraseña = '" . $user_password . "' LIMIT 1";
     $result = mysqli_query($con, $query);
 
-    if (mysqli_num_rows($result) == 1) {
+    if ($result && mysqli_num_rows($result) == 1) {
+        // Usuario autenticado correctamente
+        $_SESSION['usuario'] = $user_name;
         header('Location: welcome.php');
+        exit();
     } else {
         $msg = "Credenciales incorrectas.";
     }
 }
-
-
 ?>
+
 <!DOCTYPE html>
 <html lang="en">
 
@@ -49,7 +52,6 @@ if (isset($_POST['user_name'])) {
                     </div>
                     <input type="submit" value="Iniciar sesión" class="submit">
                     <div class="check">
-                        <input type="checkbox" name="" id=""><span>Recordar sesión.</span>
                     </div>
                     <p>¿No tienes una cuenta? <a href="signup.php">Registrate aquí.</a></p>
                 </form>

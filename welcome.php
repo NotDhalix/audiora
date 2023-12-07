@@ -1,3 +1,26 @@
+<?php
+session_start();
+
+include('db_connect.php');
+
+$profile_image_path = ''; // Definir la variable por defecto
+
+if (isset($_SESSION['usuario'])) {
+    // Recuperar la información del usuario, incluida la ruta de la imagen de perfil
+    $user_name = $_SESSION['usuario'];
+    $query = "SELECT ImagenPerfil FROM usuarios WHERE NombreUsuario = '$user_name' LIMIT 1";
+    $result = mysqli_query($con, $query);
+
+    if ($result && $row = mysqli_fetch_assoc($result)) {
+        $profile_image_path = $row['ImagenPerfil'];
+    }
+} else {
+    // Si el usuario no está autenticado, redirigir a la página de inicio de sesión
+    header("Location: index.php");
+    exit();
+}
+?>
+
 <!DOCTYPE html>
 <html lang="es">
 
@@ -104,10 +127,10 @@
                     </div>
                 </div>
                 <div id="profile-container">
-                    <img src="img/pre-avatar.jpg" alt="Imagen de perfil" id="profile-image">
+                    <img src="<?php echo $profile_image_path; ?>" alt="Imagen de perfil" id="profile-image">
                     <div id="profile-menu">
                         <ul>
-                            <a href="#">
+                            <a href="edit_profile.php">
                                 <li>Editar Perfil</li>
                             </a>
                             <a href="logout.php">

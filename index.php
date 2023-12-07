@@ -9,14 +9,27 @@ if (isset($_POST['user_name'])) {
     $user_name = $_POST['user_name'];
     $user_password = $_POST['user_password'];
 
-    $query = "SELECT * FROM usuarios WHERE NombreUsuario = '" . $user_name . "' AND Contraseña = '" . $user_password . "' LIMIT 1";
-    $result = mysqli_query($con, $query);
+    // Utilizando consulta preparada para prevenir inyección SQL
+    $query = "SELECT UsuarioID, Contraseña FROM usuarios WHERE NombreUsuario = ? LIMIT 1";
+    $stmt = mysqli_prepare($con, $query);
 
-    if ($result && mysqli_num_rows($result) == 1) {
-        // Usuario autenticado correctamente
-        $_SESSION['usuario'] = $user_name;
-        header('Location: welcome.php');
-        exit();
+    mysqli_stmt_bind_param($stmt, "s", $user_name);
+    mysqli_stmt_execute($stmt);
+
+    $result = mysqli_stmt_get_result($stmt);
+
+    if ($result && $row = mysqli_fetch_assoc($result)) {
+        $hashed_password = $row['Contraseña'];
+
+        // Verificar la contraseña utilizando password_verify
+        if (password_verify($user_password, $hashed_password)) {
+            // Usuario autenticado correctamente
+            $_SESSION['UsuarioID'] = $row['UsuarioID']; // Usar UsuarioID
+            header('Location: welcome.php');
+            exit();
+        } else {
+            $msg = "Credenciales incorrectas.";
+        }
     } else {
         $msg = "Credenciales incorrectas.";
     }
@@ -58,8 +71,7 @@ if (isset($_POST['user_name'])) {
             </div>
         </div>
         <div class="right_bx1">
-            <img src="login_png.jpg" alt="">
-            <!-- <h3>Inccorect Password</h3> -->
+            <img src="img/login_png.jpg" alt="">
             <?php
             echo ('<h3>' . $msg . '</h3>');
             ?>

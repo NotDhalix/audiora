@@ -1,0 +1,62 @@
+header .formulario {
+  background: bisque;
+}
+
+header .left_bx1 {
+  width: 50%;
+  background: #fff;
+  box-shadow: 5px 0px 2px #090f1f;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin: auto;
+  overflow-y: auto;
+}
+
+header .left_bx1 .content .card {
+  width: 100%;
+  display: flex;
+  align-items: center; /* Centra verticalmente los elementos del contenedor */
+  flex-direction: column; /* Alinea los elementos en columna */
+  justify-content: center; /* Centra horizontalmente los elementos del contenedor */
+  margin-top: 20px;
+}
+
+header .left_bx1 .content .card img {
+  max-width: 25%;
+  height: auto;
+  margin-bottom: 10px;
+  border-radius: 50%; /* Hace que la imagen sea circular */
+  object-fit: cover; /* Escala la imagen manteniendo su relación de aspecto y recorta el exceso */
+  object-position: center center; /* Centra la imagen */
+}
+
+header .left_bx1 .content .card input {
+  width: 100%;
+  padding: 6px 10px;
+  border: 1px solid rgb(154, 154, 154);
+  background: rgb(238, 238, 238);
+  margin-top: 5px;
+}
+
+/* Agrega estos estilos para la contraseña */
+header .left_bx1 .content .card.password input {
+  font-size: 14px;
+}
+
+header .left_bx1 .content .card.password label {
+  margin-top: 15px;
+}
+
+header .left_bx1 .content .card.password input[type="text"] {
+  border: none;
+  border-bottom: 1px solid #000;
+  background: transparent;
+}
+
+/* Agregado para centrar el formulario en dispositivos pequeños */
+@media (max-width: 768px) {
+  header .left_bx1 {
+    width: 80%;
+  }
+}

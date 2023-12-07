@@ -8,13 +8,14 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
     $user_email = $_POST['user_email'];
     $user_password = $_POST['user_password'];
     $user_re_password = $_POST['user_re_password'];
+    $ImagenPerfil = isset($_FILES['ImagenPerfil']['tmp_name']) ? addslashes(file_get_contents($_FILES['ImagenPerfil']['tmp_name'])) : addslashes(file_get_contents('img/pre-avatar.jpg'));
 
     if (!empty($user_name) && !empty($user_email) && !empty($user_password) &&  !is_numeric($user_name)) {
         if ($user_password === $user_re_password) {
+            // Hash de la contraseña antes de almacenarla en la base de datos
+            $hashed_password = password_hash($user_password, PASSWORD_DEFAULT);
 
-            $default_image_path = 'img/pre-avatar.jpg';
-
-            $query = "INSERT INTO usuarios (NombreUsuario, Correo, Contraseña, ImagenPerfil) VALUES ('$user_name', '$user_email', '$user_password', '$default_image_path')";
+            $query = "INSERT INTO usuarios (NombreUsuario, Correo, Contraseña, ImagenPerfil) VALUES ('$user_name', '$user_email', '$hashed_password', '$ImagenPerfil')";
             mysqli_query($con, $query);
 
             header("Location: index.php");
@@ -26,7 +27,6 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
     }
 }
 ?>
-
 <!DOCTYPE html>
 <html lang="es">
 
@@ -61,6 +61,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
                         <label for="re-password">Ingrese de nuevo la contraseña</label>
                         <input type="password" name="user_re_password" placeholder="" required>
                     </div>
+                    <input hidden type="file" name="default_image" placeholder="" value="img/pre-avatar.jpg">
                     <input type="submit" value="Registrarme" class="submit">
                     <div class="check">
                     </div>

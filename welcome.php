@@ -3,15 +3,14 @@ session_start();
 
 include('db_connect.php');
 
-$profile_image_path = ''; // Definir la variable por defecto
-
-if (isset($_SESSION['usuario'])) {
+if (isset($_SESSION['UsuarioID'])) {
     // Recuperar la información del usuario, incluida la ruta de la imagen de perfil
-    $user_name = $_SESSION['usuario'];
-    $query = "SELECT ImagenPerfil FROM usuarios WHERE NombreUsuario = '$user_name' LIMIT 1";
+    $user_id = $_SESSION['UsuarioID']; // Usar UsuarioID
+    $query = "SELECT NombreUsuario, ImagenPerfil FROM usuarios WHERE UsuarioID = $user_id LIMIT 1";
     $result = mysqli_query($con, $query);
 
     if ($result && $row = mysqli_fetch_assoc($result)) {
+        $user_name = $row['NombreUsuario'];
         $profile_image_path = $row['ImagenPerfil'];
     }
 } else {
@@ -127,7 +126,7 @@ if (isset($_SESSION['usuario'])) {
                     </div>
                 </div>
                 <div id="profile-container">
-                    <img src="<?php echo $profile_image_path; ?>" alt="Imagen de perfil" id="profile-image">
+                    <img src="data:image/jpg;base64,<?php echo base64_encode($row['ImagenPerfil']) ?>" alt="Imagen de perfil" id="profile-image">
                     <div id="profile-menu">
                         <ul>
                             <a href="edit_profile.php">

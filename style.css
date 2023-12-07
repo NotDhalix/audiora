@@ -576,9 +576,13 @@ header .song_side nav .search input {
 }
 
 #profile-image {
-  width: 32px; /* ajusta según tus necesidades */
-  height: 32px; /* ajusta según tus necesidades */
-  border-radius: 50%;
+  max-width: 25%;
+  height: auto;
+  margin-bottom: 10px;
+  border-radius: 50%; /* Hace que la imagen sea circular */
+  object-fit: cover; /* Escala la imagen manteniendo su relación de aspecto y recorta el exceso */
+  object-position: center center; /* Centra la imagen */
+
   cursor: pointer;
 }
 

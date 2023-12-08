@@ -12,23 +12,35 @@ header .left_bx1 {
   margin: auto;
   overflow-y: auto;
 }
+header .left_bx1 .content .titulo h3 {
+  margin-left: 10px;
+  display: flex;
+  align-items: center;
+}
+.bi-arrow-left-circle-fill::before {
+  content: "\f129";
+  color: black;
+}
+
+header .left_bx1 .content .titulo {
+  display: flex;
+  align-items: center;
+}
 
 header .left_bx1 .content .card {
   width: 100%;
-  display: flex;
-  align-items: center; /* Centra verticalmente los elementos del contenedor */
+  display: flex; /* Centra verticalmente los elementos del contenedor */
   flex-direction: column; /* Alinea los elementos en columna */
   justify-content: center; /* Centra horizontalmente los elementos del contenedor */
   margin-top: 20px;
 }
 
 header .left_bx1 .content .card img {
+  margin-top: 10px;
   max-width: 25%;
   height: auto;
   margin-bottom: 10px;
   border-radius: 50%; /* Hace que la imagen sea circular */
-  object-fit: cover; /* Escala la imagen manteniendo su relación de aspecto y recorta el exceso */
-  object-position: center center; /* Centra la imagen */
 }
 
 header .left_bx1 .content .card input {

@@ -108,8 +108,8 @@ if (isset($_SESSION['UsuarioID'])) {
         <div class="song_side">
             <nav>
                 <ul>
-                    <li class="active"><a href="pag_descubrir.php">Discover<span></span></a></li>
-                    <li><a href="pag_canciones.php">Canciones</a></li>
+                    <li><a href="welcome.php">Discover</a></li>
+                    <li class="active"><a href="pag_canciones.php">Canciones <span></span></a></li>
                     <li><a href="pag_artistas.php">Artistas</a></li>
                 </ul>
                 <div class="search">
@@ -145,7 +145,7 @@ if (isset($_SESSION['UsuarioID'])) {
                 <p>You were the shadow to my light did you feel us Another start you fade <br> Away afraid our aim is
                     out of sight Wanna see us Alive</p>
                 <div class="buttons">
-                    <button>PLAY</button>
+                    <button>AGREGAR CANCION</button>
                     <button>FOLLOW</button>
                 </div>
             </div>

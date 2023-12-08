@@ -449,7 +449,6 @@ header .song_side::before {
 header .song_side nav {
   width: 90%;
   height: 10%;
-  /* border: 1px solid #fff; */
   margin: auto;
   display: flex;
   align-items: center;
@@ -463,19 +462,20 @@ header .song_side nav ul {
 header .song_side nav ul li {
   list-style: none;
   position: relative;
-  font-size: 13px;
-  color: #4c5262;
+  font-size: 15px;
   margin-right: 25px;
   cursor: pointer;
   transition: 0.3s linear;
+  color: #888; /* Color gris para enlaces inactivos */
+}
+header .song_side nav ul li a {
+  text-decoration: none; /* Quitar subrayado */
+  color: #888; /* Color gris para enlaces inactivos */
 }
 
-header .song_side nav ul li:hover {
-  color: #fff;
-}
-
-header .song_side nav ul li:nth-child(1) {
-  color: #fff;
+header .song_side nav ul li a:hover,
+header .song_side nav ul li.active a {
+  color: #fff; /* Color blanco para el enlace activo y en hover */
 }
 
 header .song_side nav ul li span {
@@ -486,6 +486,11 @@ header .song_side nav ul li span {
   bottom: -5px;
   left: 0;
   border-radius: 20px;
+}
+
+/* Agregar un estilo para el enlace activo */
+header .song_side nav ul li.active span {
+  background: #36e2ec; /* Color de fondo para el enlace activo */
 }
 
 header .song_side nav .search {
@@ -576,13 +581,10 @@ header .song_side nav .search input {
 }
 
 #profile-image {
-  max-width: 25%;
+  margin-top: 10px;
+  width: 32px;
   height: auto;
-  margin-bottom: 10px;
   border-radius: 50%; /* Hace que la imagen sea circular */
-  object-fit: cover; /* Escala la imagen manteniendo su relación de aspecto y recorta el exceso */
-  object-position: center center; /* Centra la imagen */
-
   cursor: pointer;
 }
 

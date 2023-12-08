@@ -71,7 +71,7 @@ if (isset($_POST['user_name'])) {
             </div>
         </div>
         <div class="right_bx1">
-            <img src="img/login_png.jpg" alt="">
+            <img src="login_png.jpg" alt="">
             <?php
             echo ('<h3>' . $msg . '</h3>');
             ?>

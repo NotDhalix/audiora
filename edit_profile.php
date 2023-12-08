@@ -44,7 +44,10 @@ if ($result && $row = mysqli_fetch_assoc($result)) {
         <div class="left_bx1">
             <div class="content">
                 <form method="post" action="procesar_actualizacion.php" enctype="multipart/form-data">
-                    <h3>Editar Perfil</h3>
+                    <div class="titulo">
+                        <a href="welcome.php"><i class="bi bi-arrow-left-circle-fill"></i></a>
+                        <h3>Editar Perfil</h3>
+                    </div>
                     <div class="card">
                         <img src="data:image/jpg;base64,<?php echo base64_encode($row['ImagenPerfil']) ?>" alt="Imagen de perfil actual">
                     </div>

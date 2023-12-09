@@ -193,6 +193,7 @@ header .master_play {
   display: flex;
   align-items: center;
   padding: 0px 20px;
+  z-index: 9999999999999999999;
 }
 
 header .master_play .wave {
@@ -630,10 +631,8 @@ header .song_side nav .search input {
 
 header .song_side .content {
   width: 90%;
-  height: 30%;
   /* border: 1px solid #fff; */
   margin: auto;
-  padding-top: 20px;
 }
 
 header .song_side .content h1 {
@@ -849,12 +848,13 @@ header .right_bx1 h3 {
 /* Contenedor para la imagen */
 .cancion-row .cancion-image-container {
   max-width: 100px; /* Ajusta el tamaño máximo de la imagen según tus necesidades */
+  height: 100px; /* Establece una altura fija para el contenedor de la imagen */
   overflow: hidden;
 }
 
 .cancion-row .cancion-image-container img {
-  width: 50%;
-  height: auto;
+  width: 120px;
+  height: 120px;
 }
 
 /* Alineación a la izquierda */
@@ -863,4 +863,14 @@ header .right_bx1 h3 {
 .btn-editar,
 .btn-eliminar {
   text-align: left;
+}
+
+#canciones-container {
+  padding: 20px;
+  max-height: 550px; /* Ajusta esta altura según sea necesario */
+  overflow-y: auto;
+}
+
+#canciones-container::-webkit-scrollbar {
+  display: none;
 }

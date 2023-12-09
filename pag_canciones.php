@@ -44,22 +44,23 @@ if (isset($_SESSION['UsuarioID'])) {
             </div>
             <div class="playlist">
                 <h4 class="active"><span></span><i class="bi bi-music-note-beamed"></i> Historial</h4>
+                <h4><span></span><i class="bi bi-music-note-beamed"></i> Favoritos</h4>
             </div>
             <div class="menu_song">
-                <li class="songItem">
+                <!-- <li class="songItem">
                     <span>01</span>
                     <img src="img/1.jpg" alt="">
                     <h5>On My Way <br>
                         <div class="subtitle">Alan Walker</div>
                     </h5>
                     <i class="bi playListPlay bi-play-circle-fill" id="1"></i>
-                </li>
+                </li> -->
             </div>
         </div>
         <div class="song_side">
             <nav>
                 <ul>
-                    <li><a href="welcome.php">Discover</a></li>
+                    <li><a href="welcome.php">Descubrir</a></li>
                     <li class="active"><a href="pag_canciones.php">Canciones <span></span></a></li>
                     <li><a href="pag_artistas.php">Artistas</a></li>
                 </ul>
@@ -97,49 +98,50 @@ if (isset($_SESSION['UsuarioID'])) {
                     <button>FOLLOW</button>
                 </div>
             </div>
+            <div id="canciones-container">
+                <section class="canciones-section">
+                    <?php
+                    // Obtener las canciones del usuario desde la base de datos
+                    $query = "SELECT * FROM canciones WHERE UsuarioID = '$user_id'";
+                    $result = mysqli_query($con, $query);
 
-            <section class="canciones-section">
-                <?php
-                // Obtener las canciones del usuario desde la base de datos
-                $query = "SELECT * FROM canciones WHERE UsuarioID = '$user_id'";
-                $result = mysqli_query($con, $query);
-
-                // Verificar si hay canciones registradas
-                if (mysqli_num_rows($result) > 0) {
-                    echo '<table class="canciones-table">';
-                    echo '<thead>';
-                    echo '<tr>';
-                    echo '<th>Imagen</th>';
-                    echo '<th>Título</th>';
-                    echo '<th>Artista</th>';
-                    echo '<th>Duración</th>';
-                    echo '<th>Audio</th>';
-                    echo '<th>Acciones</th>';
-                    echo '</tr>';
-                    echo '</thead>';
-                    echo '<tbody>';
-
-                    while ($row = mysqli_fetch_assoc($result)) {
-                        echo '<tr class="cancion-row">';
-                        echo '<td class="cancion-image-container"><img src="data:image/jpg;base64,' . base64_encode($row['ImagenCancion']) . '" alt="Imagen de la canción"></td>';
-                        echo '<td>' . $row['Titulo'] . '</td>';
-                        echo '<td>' . $row['Artista'] . '</td>';
-                        echo '<td>' . $row['Duracion'] . '</td>';
-                        echo '<td><audio controls><source src="data:audio/mp3;base64,' . base64_encode($row['audio']) . '"></audio></td>';
-                        echo '<td>';
-                        echo '<a href="editar_cancion.php?id=' . $row['CancionID'] . '" class="btn-editar"><i class="bi bi-pencil-square"></i></a>';
-                        echo '<a href="#" class="btn-eliminar" onclick="confirmarEliminar(' . $row['CancionID'] . ')"><i class="bi bi-trash3-fill"></i></a>';
-                        echo '</td>';
+                    // Verificar si hay canciones registradas
+                    if (mysqli_num_rows($result) > 0) {
+                        echo '<table class="canciones-table">';
+                        echo '<thead>';
+                        echo '<tr>';
+                        echo '<th>Imagen</th>';
+                        echo '<th>Título</th>';
+                        echo '<th>Artista</th>';
+                        echo '<th>Duración</th>';
+                        echo '<th>Audio</th>';
+                        echo '<th>Acciones</th>';
                         echo '</tr>';
-                    }
+                        echo '</thead>';
+                        echo '<tbody>';
 
-                    echo '</tbody>';
-                    echo '</table>';
-                } else {
-                    echo '<p style="margin-left: 100px; font-size: 30px;">No tienes canciones agregadas <i class="bi bi-emoji-frown"></i></p>';
-                }
-                ?>
-            </section>
+                        while ($row = mysqli_fetch_assoc($result)) {
+                            echo '<tr class="cancion-row">';
+                            echo '<td class="cancion-image-container"><img src="data:image/jpg;base64,' . base64_encode($row['ImagenCancion']) . '" alt="Imagen de la canción"></td>';
+                            echo '<td>' . $row['Titulo'] . '</td>';
+                            echo '<td>' . $row['Artista'] . '</td>';
+                            echo '<td>' . $row['Duracion'] . '</td>';
+                            echo '<td><audio controls><source src="data:audio/mp3;base64,' . base64_encode($row['audio']) . '"></audio></td>';
+                            echo '<td>';
+                            echo '<a href="editar_cancion.php?cancion_id=' . $row['CancionID'] . '" class="btn-editar"><i class="bi bi-pencil-square"></i></a>';
+                            echo '<a href="#" class="btn-eliminar" onclick="confirmarEliminar(' . $row['CancionID'] . ')"><i class="bi bi-trash3-fill"></i></a>';
+                            echo '</td>';
+                            echo '</tr>';
+                        }
+
+                        echo '</tbody>';
+                        echo '</table>';
+                    } else {
+                        echo '<p style="margin-left: 100px; font-size: 30px;">No tienes canciones agregadas <i class="bi bi-emoji-frown"></i></p>';
+                    }
+                    ?>
+                </section>
+            </div>
 
         </div>
         <div class="master_play">
@@ -148,8 +150,8 @@ if (isset($_SESSION['UsuarioID'])) {
                 <div class="wave1"></div>
                 <div class="wave1"></div>
             </div>
-            <img src="img/20.jpg" alt="" id="poster_master_play">
-            <h5 id="title"> Vande mataram <div class="subtitle">Bankim Chandra</div>
+            <img src="img/1.jpg" alt="" id="poster_master_play">
+            <h5 id="title"> Oh My Way<div class="subtitle">Alan Walker</div>
             </h5>
             <div class="icon">
                 <i class="bi shuffle bi-music-note-beamed">next</i>
@@ -164,7 +166,7 @@ if (isset($_SESSION['UsuarioID'])) {
                 <div class="bar2" id="bar2"></div>
                 <div class="dot"></div>
             </div>
-            <span id="currentEnd">0:30</span>
+            <span id="currentEnd">3:36</span>
             <div class="vol">
                 <i class="bi bi-volume-up-fill" id="vol_icon"></i>
                 <input type="range" min="0" max="100" id="vol">
@@ -180,7 +182,6 @@ if (isset($_SESSION['UsuarioID'])) {
                 window.location.href = 'procesar_borrado_cancion.php?id=' + cancionID;
             }
         }
-
 
         let menu_list_active_button = document.getElementById('menu_list_active_button');
         let menu_side = document.getElementsByClassName('menu_side')[0];

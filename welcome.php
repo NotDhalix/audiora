@@ -43,7 +43,8 @@ if (isset($_SESSION['UsuarioID'])) {
                 <h1>Audiora Music</h1>
             </div>
             <div class="playlist">
-                <h4 class="active"><span></span><i class="bi bi-music-note-beamed"></i> Historial</h4>
+                <h4 class="active"><span></span><i class="bi bi-music-note-beamed"></i> Recomendaciones</h4>
+                <!-- <h4><span></span><i class="bi bi-music-note-beamed"></i> Favoritos</h4> -->
             </div>
             <div class="menu_song">
                 <li class="songItem">
@@ -108,7 +109,7 @@ if (isset($_SESSION['UsuarioID'])) {
         <div class="song_side">
             <nav>
                 <ul>
-                    <li class="active"><a href="pag_descubrir.php">Discover<span></span></a></li>
+                    <li class="active"><a href="pag_descubrir.php">Descubrir<span></span></a></li>
                     <li><a href="pag_canciones.php">Canciones</a></li>
                     <li><a href="pag_artistas.php">Artistas</a></li>
                 </ul>
@@ -141,14 +142,16 @@ if (isset($_SESSION['UsuarioID'])) {
 
             </nav>
             <div class="content">
+                <h1>Alan Walker</h1>
+                <p>Alan Olav Walker es un DJ, remezclador y productor discográfico noruego <br> nacido en Northampton, Inglaterra. Es conocido por su sencillo «Faded» de <br>2015, que fue certificado platino en catorce países.</p>
                 <div class="buttons">
-                    <button>PLAY</button>
-                    <button>FOLLOW</button>
+                    <button>REPRODUCIR</button>
+                    <button>SEGUIR</button>
                 </div>
             </div>
             <div class="popular_song">
                 <div class="h4">
-                    <h4>Popular Song</h4>
+                    <h4>Canciones Populares</h4>
                     <div class="btn_s">
                         <i class="bi bi-arrow-left-short" id="pop_song_left"></i>
                         <i class="bi bi-arrow-right-short" id="pop_song_right"></i>
@@ -276,7 +279,7 @@ if (isset($_SESSION['UsuarioID'])) {
             </div>
             <div class="popular_artists">
                 <div class="h4">
-                    <h4>Popular Artists</h4>
+                    <h4>Artistas</h4>
                     <div class="btn_s">
                         <i class="bi bi-arrow-left-short" id="pop_art_left"></i>
                         <i class="bi bi-arrow-right-short" id="pop_art_right"></i>
@@ -284,43 +287,43 @@ if (isset($_SESSION['UsuarioID'])) {
                 </div>
                 <div class="item Artists_bx">
                     <li>
-                        <a href="arjit.php"><img src="img/arjit.jpg" alt=""></a>
+                        <img src="Artistas/Don Omar.jpg" alt="">
                     </li>
                     <li>
-                        <img src="img/alan.jpg" alt="">
+                        <img src="Artistas/Miley Cyrus.jpg" alt="">
                     </li>
                     <li>
-                        <img src="img/justin-bieber-lede.jpg" alt="">
+                        <img src="Artistas/Juicy J.jpg" alt="">
                     </li>
                     <li>
-                        <img src="img/guru.jpg" alt="">
+                        <img src="Artistas/Bruno Mars.jpg" alt="">
                     </li>
                     <li>
-                        <img src="img/honey.jpg" alt="">
+                        <img src="Artistas/Camila Cabello.jpeg" alt="">
                     </li>
                     <li>
-                        <img src="img/neha.jpg" alt="">
+                        <img src="Artistas/Gilberto Santa Rosa.jpg" alt="">
                     </li>
                     <li>
-                        <img src="img/jubin Nautiyal.jpg" alt="">
+                        <img src="Artistas/Marc Anthony.png" alt="">
                     </li>
                     <li>
-                        <img src="img/Diljit_Dosanjh.jpg" alt="">
+                        <img src="Artistas/Christian Nodal.webp" alt="">
                     </li>
                     <li>
-                        <img src="img/dhvani.jpg" alt="">
+                        <img src="Artistas/Eminem.webp" alt="">
                     </li>
                     <li>
-                        <img src="img/atif.jpg" alt="">
+                        <img src="Artistas/Quevedo.webp" alt="">
                     </li>
                     <li>
-                        <img src="img/akhil.jpg" alt="">
+                        <img src="Artistas/Pitbull.jpg" alt="">
                     </li>
                     <li>
-                        <img src="img/alan.jpg" alt="">
+                        <img src="Artistas/Myke Towers.webp" alt="">
                     </li>
                     <li>
-                        <img src="img/guru.jpg" alt="">
+                        <img src="Artistas/Jennifer Lopez.png" alt="">
                     </li>
                 </div>
             </div>
@@ -331,8 +334,8 @@ if (isset($_SESSION['UsuarioID'])) {
                 <div class="wave1"></div>
                 <div class="wave1"></div>
             </div>
-            <img src="img/20.jpg" alt="" id="poster_master_play">
-            <h5 id="title"> Vande mataram <div class="subtitle">Bankim Chandra</div>
+            <img src="img/1.jpg" alt="" id="poster_master_play">
+            <h5 id="title"> On My Way <div class="subtitle">Alan Walker</div>
             </h5>
             <div class="icon">
                 <i class="bi shuffle bi-music-note-beamed">next</i>
@@ -347,7 +350,7 @@ if (isset($_SESSION['UsuarioID'])) {
                 <div class="bar2" id="bar2"></div>
                 <div class="dot"></div>
             </div>
-            <span id="currentEnd">0:30</span>
+            <span id="currentEnd">3:36</span>
             <div class="vol">
                 <i class="bi bi-volume-up-fill" id="vol_icon"></i>
                 <input type="range" min="0" max="100" id="vol">

@@ -16,11 +16,9 @@
     <header style="background-color: #111727;">
         <div class="left_bx1">
             <div class="content">
-                <!-- ... (tu código existente) ... -->
-
-                <!-- Formulario para registrar música -->
                 <form method="post" action="procesar_registro_cancion.php" enctype="multipart/form-data">
                     <div class="titulo">
+                        <a href="pag_canciones.php"><i class="bi bi-arrow-left-circle-fill"></i></a>
                         <h3>Registrar Canción</h3>
                     </div>
                     <div class="card">
@@ -45,7 +43,7 @@
                     </div>
                     <input type="submit" value="Registrar Canción" class="submit">
                 </form>
-                </form>
+
             </div>
         </div>
     </header>

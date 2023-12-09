@@ -141,9 +141,6 @@ if (isset($_SESSION['UsuarioID'])) {
 
             </nav>
             <div class="content">
-                <h1>Alen Walker-Fade</h1>
-                <p>You were the shadow to my light did you feel us Another start you fade <br> Away afraid our aim is
-                    out of sight Wanna see us Alive</p>
                 <div class="buttons">
                     <button>PLAY</button>
                     <button>FOLLOW</button>

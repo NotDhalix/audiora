@@ -29,7 +29,7 @@ if (isset($_SESSION['UsuarioID'])) {
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="icon" href="img/logo.png" type="image/png" />
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.8.3/font/bootstrap-icons.css">
-    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="style2.css">
     <link rel="stylesheet" href="media.css">
     <title>Audiora Music</title>
 </head>
@@ -54,55 +54,6 @@ if (isset($_SESSION['UsuarioID'])) {
                     </h5>
                     <i class="bi playListPlay bi-play-circle-fill" id="1"></i>
                 </li>
-                <li class="songItem">
-                    <span>02</span>
-                    <img src="img/2.jpg" alt="">
-                    <h5>On My Way <br>
-                        <div class="subtitle">Alan Walker</div>
-                    </h5>
-                    <i class="bi playListPlay bi-play-circle-fill" id="2"></i>
-                </li>
-                <li class="songItem">
-                    <span>03</span>
-                    <img src="img/2.jpg" alt="">
-                    <h5>On My Way <br>
-                        <div class="subtitle">Alan Walker</div>
-                    </h5>
-                    <i class="bi playListPlay bi-play-circle-fill" id="3"></i>
-                </li>
-                <li class="songItem">
-                    <span>04</span>
-                    <img src="img/2.jpg" alt="">
-                    <h5>On My Way <br>
-                        <div class="subtitle">Alan Walker</div>
-                    </h5>
-                    <i class="bi playListPlay bi-play-circle-fill" id="4"></i>
-                </li>
-                <li class="songItem">
-                    <span>05</span>
-                    <img src="img/2.jpg" alt="">
-                    <h5>On My Way <br>
-                        <div class="subtitle">Alan Walker</div>
-                    </h5>
-                    <i class="bi playListPlay bi-play-circle-fill" id="5"></i>
-                </li>
-                <li class="songItem">
-                    <span>06</span>
-                    <img src="img/2.jpg" alt="">
-                    <h5>On My Way <br>
-                        <div class="subtitle">Alan Walker</div>
-                    </h5>
-                    <i class="bi playListPlay bi-play-circle-fill" id="6"></i>
-                </li>
-                <li class="songItem">
-                    <span>07</span>
-                    <img src="img/2.jpg" alt="">
-                    <h5>On My Way <br>
-                        <div class="subtitle">Alan Walker</div>
-                    </h5>
-                    <i class="bi playListPlay bi-play-circle-fill" id="7"></i>
-                </li>
-
             </div>
         </div>
         <div class="song_side">
@@ -141,192 +92,55 @@ if (isset($_SESSION['UsuarioID'])) {
 
             </nav>
             <div class="content">
-                <h1>Alen Walker-Fade</h1>
-                <p>You were the shadow to my light did you feel us Another start you fade <br> Away afraid our aim is
-                    out of sight Wanna see us Alive</p>
                 <div class="buttons">
-                    <button>AGREGAR CANCION</button>
+                    <a href="registro_song.php"><button>AGREGAR CANCION</button></a>
                     <button>FOLLOW</button>
                 </div>
             </div>
-            <div class="popular_song">
-                <div class="h4">
-                    <h4>Popular Song</h4>
-                    <div class="btn_s">
-                        <i class="bi bi-arrow-left-short" id="pop_song_left"></i>
-                        <i class="bi bi-arrow-right-short" id="pop_song_right"></i>
-                    </div>
-                </div>
-                <div class="pop_song">
-                    <li class="songItem">
-                        <div class="img_play">
-                            <img src="img/2.jpg" alt="">
-                            <i class="bi playListPlay bi-play-circle-fill" id="8"></i>
-                        </div>
-                        <h5>On My Way<br>
-                            <div class="subtitle">Alan Walker</div>
-                        </h5>
-                    </li>
-                    <li class="songItem">
-                        <div class="img_play">
-                            <img src="img/2.jpg" alt="">
-                            <i class="bi playListPlay bi-play-circle-fill" id="9"></i>
-                        </div>
-                        <h5>On My Way<br>
-                            <div class="subtitle">Alan Walker</div>
-                        </h5>
-                    </li>
-                    <li class="songItem">
-                        <div class="img_play">
-                            <img src="img/2.jpg" alt="">
-                            <i class="bi playListPlay bi-play-circle-fill" id="10"></i>
-                        </div>
-                        <h5>On My Way<br>
-                            <div class="subtitle">Alan Walker</div>
-                        </h5>
-                    </li>
-                    <li class="songItem">
-                        <div class="img_play">
-                            <img src="img/2.jpg" alt="">
-                            <i class="bi playListPlay bi-play-circle-fill" id="11"></i>
-                        </div>
-                        <h5>On My Way<br>
-                            <div class="subtitle">Alan Walker</div>
-                        </h5>
-                    </li>
-                    <li class="songItem">
-                        <div class="img_play">
-                            <img src="img/2.jpg" alt="">
-                            <i class="bi playListPlay bi-play-circle-fill" id="12"></i>
-                        </div>
-                        <h5>On My Way<br>
-                            <div class="subtitle">Alan Walker</div>
-                        </h5>
-                    </li>
-                    <li class="songItem">
-                        <div class="img_play">
-                            <img src="img/2.jpg" alt="">
-                            <i class="bi playListPlay bi-play-circle-fill" id="13"></i>
-                        </div>
-                        <h5>On My Way<br>
-                            <div class="subtitle">Alan Walker</div>
-                        </h5>
-                    </li>
-                    <li class="songItem">
-                        <div class="img_play">
-                            <img src="img/2.jpg" alt="">
-                            <i class="bi playListPlay bi-play-circle-fill" id="14"></i>
-                        </div>
-                        <h5>On My Way<br>
-                            <div class="subtitle">Alan Walker</div>
-                        </h5>
-                    </li>
-                    <li class="songItem">
-                        <div class="img_play">
-                            <img src="img/2.jpg" alt="">
-                            <i class="bi playListPlay bi-play-circle-fill" id="15"></i>
-                        </div>
-                        <h5>On My Way<br>
-                            <div class="subtitle">Alan Walker</div>
-                        </h5>
-                    </li>
-                    <li class="songItem">
-                        <div class="img_play">
-                            <img src="img/2.jpg" alt="">
-                            <i class="bi playListPlay bi-play-circle-fill" id="16"></i>
-                        </div>
-                        <h5>On My Way<br>
-                            <div class="subtitle">Alan Walker</div>
-                        </h5>
-                    </li>
-                    <li class="songItem">
-                        <div class="img_play">
-                            <img src="img/2.jpg" alt="">
-                            <i class="bi playListPlay bi-play-circle-fill" id="17"></i>
-                        </div>
-                        <h5>On My Way<br>
-                            <div class="subtitle">Alan Walker</div>
-                        </h5>
-                    </li>
-                    <li class="songItem">
-                        <div class="img_play">
-                            <img src="img/2.jpg" alt="">
-                            <i class="bi playListPlay bi-play-circle-fill" id="18"></i>
-                        </div>
-                        <h5>On My Way<br>
-                            <div class="subtitle">Alan Walker</div>
-                        </h5>
-                    </li>
-                    <li class="songItem">
-                        <div class="img_play">
-                            <img src="img/2.jpg" alt="">
-                            <i class="bi playListPlay bi-play-circle-fill" id="19"></i>
-                        </div>
-                        <h5>On My Way<br>
-                            <div class="subtitle">Alan Walker</div>
-                        </h5>
-                    </li>
-                    <li class="songItem">
-                        <div class="img_play">
-                            <img src="img/20.jpg" alt="">
-                            <i class="bi playListPlay bi-play-circle-fill" id="20"></i>
-                        </div>
-                        <h5>On My Way<br>
-                            <div class="subtitle">Alan Walker</div>
-                        </h5>
-                    </li>
-                </div>
-            </div>
-            <div class="popular_artists">
-                <div class="h4">
-                    <h4>Popular Artists</h4>
-                    <div class="btn_s">
-                        <i class="bi bi-arrow-left-short" id="pop_art_left"></i>
-                        <i class="bi bi-arrow-right-short" id="pop_art_right"></i>
-                    </div>
-                </div>
-                <div class="item Artists_bx">
-                    <li>
-                        <a href="arjit.php"><img src="img/arjit.jpg" alt=""></a>
-                    </li>
-                    <li>
-                        <img src="img/alan.jpg" alt="">
-                    </li>
-                    <li>
-                        <img src="img/justin-bieber-lede.jpg" alt="">
-                    </li>
-                    <li>
-                        <img src="img/guru.jpg" alt="">
-                    </li>
-                    <li>
-                        <img src="img/honey.jpg" alt="">
-                    </li>
-                    <li>
-                        <img src="img/neha.jpg" alt="">
-                    </li>
-                    <li>
-                        <img src="img/jubin Nautiyal.jpg" alt="">
-                    </li>
-                    <li>
-                        <img src="img/Diljit_Dosanjh.jpg" alt="">
-                    </li>
-                    <li>
-                        <img src="img/dhvani.jpg" alt="">
-                    </li>
-                    <li>
-                        <img src="img/atif.jpg" alt="">
-                    </li>
-                    <li>
-                        <img src="img/akhil.jpg" alt="">
-                    </li>
-                    <li>
-                        <img src="img/alan.jpg" alt="">
-                    </li>
-                    <li>
-                        <img src="img/guru.jpg" alt="">
-                    </li>
-                </div>
-            </div>
+
+            <section class="canciones-section">
+                <?php
+                // Obtener las canciones del usuario desde la base de datos
+                $query = "SELECT * FROM canciones WHERE UsuarioID = '$user_id'";
+                $result = mysqli_query($con, $query);
+
+                // Verificar si hay canciones registradas
+                if (mysqli_num_rows($result) > 0) {
+                    echo '<table class="canciones-table">';
+                    echo '<thead>';
+                    echo '<tr>';
+                    echo '<th>Imagen</th>';
+                    echo '<th>Título</th>';
+                    echo '<th>Artista</th>';
+                    echo '<th>Duración</th>';
+                    echo '<th>Audio</th>';
+                    echo '<th>Acciones</th>';
+                    echo '</tr>';
+                    echo '</thead>';
+                    echo '<tbody>';
+
+                    while ($row = mysqli_fetch_assoc($result)) {
+                        echo '<tr class="cancion-row">';
+                        echo '<td class="cancion-image-container"><img src="data:image/jpg;base64,' . base64_encode($row['ImagenCancion']) . '" alt="Imagen de la canción"></td>';
+                        echo '<td>' . $row['Titulo'] . '</td>';
+                        echo '<td>' . $row['Artista'] . '</td>';
+                        echo '<td>' . $row['Duracion'] . '</td>';
+                        echo '<td><audio controls><source src="data:audio/mp3;base64,' . base64_encode($row['audio']) . '"></audio></td>';
+                        echo '<td>';
+                        echo '<a href="editar_cancion.php?id=' . $row['CancionID'] . '" class="btn-editar"><i class="bi bi-pencil-square"></i></a>';
+                        echo '<a href="#" class="btn-eliminar" onclick="confirmarEliminar(' . $row['CancionID'] . ')"><i class="bi bi-trash3-fill"></i></a>';
+                        echo '</td>';
+                        echo '</tr>';
+                    }
+
+                    echo '</tbody>';
+                    echo '</table>';
+                } else {
+                    echo '<p style="margin-left: 100px; font-size: 30px;">No tienes canciones agregadas <i class="bi bi-emoji-frown"></i></p>';
+                }
+                ?>
+            </section>
+
         </div>
         <div class="master_play">
             <div class="wave" id="wave">
@@ -361,6 +175,13 @@ if (isset($_SESSION['UsuarioID'])) {
     </header>
     <script src="app.js"></script>
     <script>
+        function confirmarEliminar(cancionID) {
+            if (confirm("¿Estás seguro de que deseas eliminar esta canción?")) {
+                window.location.href = 'procesar_borrado_cancion.php?id=' + cancionID;
+            }
+        }
+
+
         let menu_list_active_button = document.getElementById('menu_list_active_button');
         let menu_side = document.getElementsByClassName('menu_side')[0];
 

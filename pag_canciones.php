@@ -45,16 +45,34 @@ if (isset($_SESSION['UsuarioID'])) {
                 <h4 class="active"><span></span><i class="bi bi-music-note-beamed"></i> Historial</h4>
                 <h4><span></span><i class="bi bi-music-note-beamed"></i> Favoritos</h4>
             </div>
-            <div class="menu_song">
-                <!-- <li class="songItem">
-                    <span>01</span>
-                    <img src="img/1.jpg" alt="">
-                    <h5>On My Way <br>
-                        <div class="subtitle">Alan Walker</div>
-                    </h5>
-                    <i class="bi playListPlay bi-play-circle-fill" id="1"></i>
-                </li> -->
-            </div>
+            <?php
+            $query = "SELECT h.*, c.Titulo, c.Artista, c.ImagenCancion FROM historialreproduccion h
+          JOIN canciones c ON h.CancionID = c.CancionID
+          WHERE h.UsuarioID = '$user_id'
+          ORDER BY h.HistorialID DESC
+          LIMIT 5"; // Adjust the LIMIT as needed
+            $result = mysqli_query($con, $query);
+
+            if ($result && mysqli_num_rows($result) > 0) {
+                echo '<div class="menu_song">';
+
+                $counter = 01;
+                while ($row = mysqli_fetch_assoc($result)) {
+                    echo '<li class="songItem">';
+                    echo '<span>' . $counter . '</span>';
+                    echo '<img src="data:image/jpg;base64,' . base64_encode($row['ImagenCancion']) . '" alt="">';
+                    echo '<h5>' . $row['Titulo'] . '<br><div class="subtitle">' . $row['Artista'] . '</div></h5>';
+                    echo '<i class="bi playListPlay bi-play-circle-fill" id="' . $row['CancionID'] . '"></i>';
+                    echo '</li>';
+                    $counter++;
+                }
+                echo '<a href="#" class="btn-eliminar" onclick="confirmarEliminarHistorial()"><i class="bi bi-trash3-fill"></i></a>';
+                echo '</div>';
+            } else {
+                echo '<p style="margin-left:20px; ">No has reproducido ninguna canción.</p>';
+            }
+            ?>
+
         </div>
         <div class="song_side">
             <nav>
@@ -77,7 +95,13 @@ if (isset($_SESSION['UsuarioID'])) {
                     </div>
                 </div>
                 <div id="profile-container">
-                    <img src="data:image/jpg;base64,<?php echo base64_encode($row['ImagenPerfil']) ?>" alt="Imagen de perfil" id="profile-image">
+                    <?php
+                    if (!empty($profile_image_path)) {
+                        echo '<img src="data:image/jpg;base64,' . base64_encode($profile_image_path) . '" alt="Imagen de perfil" id="profile-image">';
+                    } else {
+                        echo '<img src="path/to/default/image.jpg" alt="Imagen de perfil por defecto" id="profile-image">';
+                    }
+                    ?>
                     <div id="profile-menu">
                         <ul>
                             <a href="edit_profile.php">
@@ -179,6 +203,13 @@ if (isset($_SESSION['UsuarioID'])) {
                 window.location.href = 'procesar_borrado_cancion.php?id=' + cancionID;
             }
         }
+
+        function confirmarEliminarHistorial() {
+            if (confirm("¿Estás seguro de que deseas eliminar tu historial?")) {
+                window.location.href = 'eliminar_historial.php';
+            }
+        }
+
 
         let menu_list_active_button = document.getElementById('menu_list_active_button');
         let menu_side = document.getElementsByClassName('menu_side')[0];

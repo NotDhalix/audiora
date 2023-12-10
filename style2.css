@@ -849,7 +849,9 @@ header .right_bx1 h3 {
   color: #fff;
   height: 35.6px;
   width: 37.6px;
+  cursor: pointer;
 }
+
 .btn-editar {
   color: #fff;
 }
@@ -858,7 +860,8 @@ header .right_bx1 h3 {
   color: #d9534f;
 }
 
-#btn-reproducir:hover, #btn-pausa:hover,
+#btn-reproducir:hover,
+#btn-pausa:hover,
 .btn-editar:hover,
 .btn-eliminar:hover {
   background-color: #36e2ec;

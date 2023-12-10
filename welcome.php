@@ -342,7 +342,7 @@ if (isset($_SESSION['UsuarioID'])) {
                 <i class="bi bi-skip-start-fill" id="back"></i>
                 <i class="bi bi-play-fill" id="masterPlay"></i>
                 <i class="bi bi-skip-end-fill" id="next"></i>
-                <a href="" download id="download_music"><i class="bi bi-cloud-arrow-down-fill"></i></a>
+
             </div>
             <span id="currentStart">0:00</span>
             <div class="bar">

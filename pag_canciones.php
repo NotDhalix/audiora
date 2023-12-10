@@ -19,7 +19,6 @@ if (isset($_SESSION['UsuarioID'])) {
     exit();
 }
 ?>
-
 <!DOCTYPE html>
 <html lang="es">
 
@@ -98,49 +97,48 @@ if (isset($_SESSION['UsuarioID'])) {
                     <button>FOLLOW</button>
                 </div>
             </div>
+            <!-- En pag_canciones.php -->
             <div id="canciones-container">
-                <section class="canciones-section">
-                    <?php
-                    // Obtener las canciones del usuario desde la base de datos
-                    $query = "SELECT * FROM canciones WHERE UsuarioID = '$user_id'";
-                    $result = mysqli_query($con, $query);
+                <?php
+                // Obtener las canciones del usuario desde la base de datos
+                $query = "SELECT * FROM canciones WHERE UsuarioID = '$user_id'";
+                $result = mysqli_query($con, $query);
 
-                    // Verificar si hay canciones registradas
-                    if (mysqli_num_rows($result) > 0) {
-                        echo '<table class="canciones-table">';
-                        echo '<thead>';
-                        echo '<tr>';
-                        echo '<th>Imagen</th>';
-                        echo '<th>Título</th>';
-                        echo '<th>Artista</th>';
-                        echo '<th>Duración</th>';
-                        echo '<th>Audio</th>';
-                        echo '<th>Acciones</th>';
+                // Verificar si hay canciones registradas
+                if (mysqli_num_rows($result) > 0) {
+                    echo '<table class="canciones-table">';
+                    echo '<thead>';
+                    echo '<tr>';
+                    echo '<th>Imagen</th>';
+                    echo '<th>Título</th>';
+                    echo '<th>Artista</th>';
+                    echo '<th>Audio</th>';
+                    echo '<th>Acciones</th>';
+                    echo '</tr>';
+                    echo '</thead>';
+                    echo '<tbody>';
+
+                    while ($row = mysqli_fetch_assoc($result)) {
+                        echo '<tr class="cancion-row">';
+                        echo '<td class="cancion-image-container"><img src="data:image/jpg;base64,' . base64_encode($row['ImagenCancion']) . '" alt="Imagen de la canción"></td>';
+                        echo '<td>' . $row['Titulo'] . '</td>';
+                        echo '<td>' . $row['Artista'] . '</td>';
+                        echo '<td><audio controls id="audio' . $row['CancionID'] . '" data-cancion-id="' . $row['CancionID'] . '" data-audio-source="data:audio/mp3;base64,' . base64_encode($row['audio']) . '"><source src="data:audio/mp3;base64,' . base64_encode($row['audio']) . '"></audio></td>';
+                        echo '<td>';
+                        echo '<button id="btn-reproducir" class="play-button" data-cancion-id="' . $row['CancionID'] . '" data-titulo="' . $row['Titulo'] . '" data-artista="' . $row['Artista'] . '" data-imagen="' . base64_encode($row['ImagenCancion']) . '" data-audio-source="data:audio/mp3;base64,' . base64_encode($row['audio']) . '"><i class="bi playListPlay bi-play-circle-fill"></i></button>';
+                        echo '<button id="btn-pausa" class="pause-button" data-cancion-id="' . $row['CancionID'] . '" data-titulo="' . $row['Titulo'] . '" data-artista="' . $row['Artista'] . '" data-imagen="' . base64_encode($row['ImagenCancion']) . '" data-audio-source="data:audio/mp3;base64,' . base64_encode($row['audio']) . '"><i class="bi bi-pause-fill"></i></button>';
+                        echo '<a href="editar_cancion.php?cancion_id=' . $row['CancionID'] . '" class="btn-editar"><i class="bi bi-pencil-square"></i></a>';
+                        echo '<a href="#" class="btn-eliminar" onclick="confirmarEliminar(' . $row['CancionID'] . ')"><i class="bi bi-trash3-fill"></i></a>';
+                        echo '</td>';
                         echo '</tr>';
-                        echo '</thead>';
-                        echo '<tbody>';
-
-                        while ($row = mysqli_fetch_assoc($result)) {
-                            echo '<tr class="cancion-row">';
-                            echo '<td class="cancion-image-container"><img src="data:image/jpg;base64,' . base64_encode($row['ImagenCancion']) . '" alt="Imagen de la canción"></td>';
-                            echo '<td>' . $row['Titulo'] . '</td>';
-                            echo '<td>' . $row['Artista'] . '</td>';
-                            echo '<td>' . $row['Duracion'] . '</td>';
-                            echo '<td><audio controls><source src="data:audio/mp3;base64,' . base64_encode($row['audio']) . '"></audio></td>';
-                            echo '<td>';
-                            echo '<a href="editar_cancion.php?cancion_id=' . $row['CancionID'] . '" class="btn-editar"><i class="bi bi-pencil-square"></i></a>';
-                            echo '<a href="#" class="btn-eliminar" onclick="confirmarEliminar(' . $row['CancionID'] . ')"><i class="bi bi-trash3-fill"></i></a>';
-                            echo '</td>';
-                            echo '</tr>';
-                        }
-
-                        echo '</tbody>';
-                        echo '</table>';
-                    } else {
-                        echo '<p style="margin-left: 100px; font-size: 30px;">No tienes canciones agregadas <i class="bi bi-emoji-frown"></i></p>';
                     }
-                    ?>
-                </section>
+
+                    echo '</tbody>';
+                    echo '</table>';
+                } else {
+                    echo '<p style="margin-left: 100px; font-size: 30px;">No tienes canciones agregadas <i class="bi bi-emoji-frown"></i></p>';
+                }
+                ?>
             </div>
 
         </div>
@@ -158,7 +156,7 @@ if (isset($_SESSION['UsuarioID'])) {
                 <i class="bi bi-skip-start-fill" id="back"></i>
                 <i class="bi bi-play-fill" id="masterPlay"></i>
                 <i class="bi bi-skip-end-fill" id="next"></i>
-                <a href="" download id="download_music"><i class="bi bi-cloud-arrow-down-fill"></i></a>
+                <a hidden href="" download id="download_music"><i class="bi bi-cloud-arrow-down-fill"></i></a>
             </div>
             <span id="currentStart">0:00</span>
             <div class="bar">
@@ -175,7 +173,6 @@ if (isset($_SESSION['UsuarioID'])) {
             </div>
         </div>
     </header>
-    <script src="app.js"></script>
     <script>
         function confirmarEliminar(cancionID) {
             if (confirm("¿Estás seguro de que deseas eliminar esta canción?")) {
@@ -206,6 +203,7 @@ if (isset($_SESSION['UsuarioID'])) {
             }
         })
     </script>
+    <script src="app_canciones.js"></script>
 </body>
 
 </html>

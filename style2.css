@@ -353,6 +353,7 @@ header .master_play .bar .dot {
   border-radius: 50%;
   left: 0%;
   top: -1.5px;
+  z-index: 2;
 }
 
 header .master_play .bar .dot::before {
@@ -831,6 +832,24 @@ header .right_bx1 h3 {
   margin-right: 5px;
 }
 
+#btn-reproducir,
+#btn-pausa {
+  display: inline-block;
+  padding: 5px 10px;
+  text-decoration: none;
+  color: #333;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  margin-right: 5px;
+}
+
+#btn-reproducir,
+#btn-pausa {
+  background: none;
+  color: #fff;
+  height: 35.6px;
+  width: 37.6px;
+}
 .btn-editar {
   color: #fff;
 }
@@ -839,6 +858,7 @@ header .right_bx1 h3 {
   color: #d9534f;
 }
 
+#btn-reproducir:hover, #btn-pausa:hover,
 .btn-editar:hover,
 .btn-eliminar:hover {
   background-color: #36e2ec;

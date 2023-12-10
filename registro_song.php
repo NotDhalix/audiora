@@ -37,10 +37,10 @@
                         <label for="imagen_cancion">Imagen de la Canción</label>
                         <input type="file" name="imagen_cancion" accept="image/*" required>
                     </div>
-                    <div class="card">
+                    <!-- <div class="card">
                         <label for="duracion">Duración</label>
                         <input type="text" name="duracion" placeholder="00:00" required>
-                    </div>
+                    </div> -->
                     <input type="submit" value="Registrar Canción" class="submit">
                 </form>
 

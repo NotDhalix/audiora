@@ -136,7 +136,8 @@ if (isset($_SESSION['UsuarioID'])) {
                     echo '<th>Imagen</th>';
                     echo '<th>Título</th>';
                     echo '<th>Artista</th>';
-                    echo '<th>Audio</th>';
+                    echo '<th>Colaborador</th>';
+                    echo '<th id="Audio">Audio</th>';
                     echo '<th>Acciones</th>';
                     echo '</tr>';
                     echo '</thead>';
@@ -147,6 +148,7 @@ if (isset($_SESSION['UsuarioID'])) {
                         echo '<td class="cancion-image-container"><img src="data:image/jpg;base64,' . base64_encode($row['ImagenCancion']) . '" alt="Imagen de la canción"></td>';
                         echo '<td>' . $row['Titulo'] . '</td>';
                         echo '<td>' . $row['Artista'] . '</td>';
+                        echo '<td>' . $row['Artista Colaborador'] . '</td>';
                         echo '<td><audio controls id="audio' . $row['CancionID'] . '" data-cancion-id="' . $row['CancionID'] . '" data-audio-source="data:audio/mp3;base64,' . base64_encode($row['audio']) . '"><source src="data:audio/mp3;base64,' . base64_encode($row['audio']) . '"></audio></td>';
                         echo '<td>';
                         echo '<button id="btn-reproducir" title="Reproducir Canción" class="play-button" data-cancion-id="' . $row['CancionID'] . '" data-titulo="' . $row['Titulo'] . '" data-artista="' . $row['Artista'] . '" data-imagen="' . base64_encode($row['ImagenCancion']) . '" data-audio-source="data:audio/mp3;base64,' . base64_encode($row['audio']) . '"><i class="bi playListPlay bi-play-circle-fill"></i></button>';

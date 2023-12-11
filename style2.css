@@ -817,8 +817,11 @@ header .right_bx1 h3 {
 .canciones-table th,
 .canciones-table td {
   border: 1px solid #ddd;
-  padding: 8px;
+  padding: 4px;
   text-align: left;
+}
+.canciones-table #Audio {
+  width: 50px;
 }
 
 .btn-editar,
@@ -870,7 +873,7 @@ header .right_bx1 h3 {
 
 /* Contenedor para la imagen */
 .cancion-row .cancion-image-container {
-  max-width: 100px; /* Ajusta el tamaño máximo de la imagen según tus necesidades */
+  width: 100px; /* Ajusta el tamaño máximo de la imagen según tus necesidades */
   height: 100px; /* Establece una altura fija para el contenedor de la imagen */
   overflow: hidden;
 }

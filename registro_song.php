@@ -30,6 +30,10 @@
                         <input type="text" name="artista_cancion" required>
                     </div>
                     <div class="card">
+                        <label for="artista_colab_cancion">Artistas Colaboradores</label>
+                        <input type="text" name="artista_colab_cancion" required>
+                    </div>
+                    <div class="card">
                         <label for="archivo_audio">Archivo de Audio</label>
                         <input type="file" name="archivo_audio" accept="audio/*" required>
                     </div>

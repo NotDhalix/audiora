@@ -52,6 +52,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     $user_id = $_SESSION['UsuarioID'];
     $titulo_cancion = $_POST['titulo_cancion'];
     $artista_cancion = $_POST['artista_cancion'];
+    $artista_cancion_colab = $_POST['artista_colab_cancion'];
     $archivo_temporal_audio = $_FILES['archivo_audio']['tmp_name'];
     $archivo_audio = fopen($archivo_temporal_audio, 'rb');
     $archivo_temporal_imagen = $_FILES['imagen_cancion']['tmp_name'];
@@ -86,9 +87,9 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     }
 
     // Insert the song
-    $query_insert_song = "INSERT INTO canciones (Titulo, Artista, audio, ImagenCancion, UsuarioID, ArtistaID) VALUES (?, ?, ?, ?, ?, ?)";
+    $query_insert_song = "INSERT INTO canciones (Titulo, Artista, Artista Colaborador, audio, ImagenCancion, UsuarioID, ArtistaID) VALUES (?, ?, ?, ?, ?, ?)";
     $stmt_insert_song = $con->prepare($query_insert_song);
-    $stmt_insert_song->bind_param('ssbbii', $titulo_cancion, $artista_cancion, $archivo_audio, $archivo_imagen, $user_id, $artist_id);
+    $stmt_insert_song->bind_param('sssbbii', $titulo_cancion, $artista_cancion, $artista_cancion_colab, $archivo_audio, $archivo_imagen, $user_id, $artist_id);
     $stmt_insert_song->send_long_data(2, fread($archivo_audio, filesize($archivo_temporal_audio)));
     $stmt_insert_song->send_long_data(3, fread($archivo_imagen, filesize($archivo_temporal_imagen)));
     $stmt_insert_song->execute();

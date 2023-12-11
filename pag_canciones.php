@@ -119,7 +119,7 @@ if (isset($_SESSION['UsuarioID'])) {
                     <button>ALEATORIO</button>
                 </div>
             </div>
-            <!-- En pag_canciones.php -->
+
             <div id="canciones-container">
                 <?php
 

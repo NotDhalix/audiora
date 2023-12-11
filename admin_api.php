@@ -30,7 +30,7 @@ if (isset($_SESSION['UsuarioID']) && $_SESSION['UsuarioID'] == 1) {
             echo '<td>
                     <form method="post" action="admin_api.php">
                         <input type="hidden" name="delete_id" value="' . $user['UsuarioID'] . '">
-                        <input type="submit" value="Eliminar">
+                        <input type="submit" class="btn-delete" value="Eliminar">
                     </form>
                 </td>';
             echo '</tr>';

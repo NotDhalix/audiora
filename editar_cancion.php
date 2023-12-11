@@ -77,7 +77,7 @@ $stmt->close();
                     </div>
                     <div class="card">
                         <label for="artista_cancion">Artista de la Canción</label>
-                        <input type="text" disabled name="artista_cancion" value="<?php echo htmlspecialchars($cancion['Artista']); ?>">
+                        <input type="text" name="artista_cancion" value="<?php echo htmlspecialchars($cancion['Artista']); ?>">
                     </div>
                     <div class="card">
                         <label for="artista_colab_cancion">Artistas Colaboradores</label>

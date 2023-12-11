@@ -3,6 +3,10 @@ session_start();
 
 include('db_connect.php');
 
+// Realizar un seguimiento de las visitas
+$visit_count = isset($_COOKIE['visit_count']) ? $_COOKIE['visit_count'] + 1 : 1;
+setcookie('visit_count', $visit_count, time() + 86400 * 30, '/'); // Cookie válida por 30 días
+
 if (isset($_SESSION['UsuarioID'])) {
     // Recuperar la información del usuario, incluida la ruta de la imagen de perfil
     $user_id = $_SESSION['UsuarioID']; // Usar UsuarioID
@@ -43,8 +47,12 @@ if (isset($_SESSION['UsuarioID'])) {
                 <h1>Audiora Music</h1>
             </div>
             <div class="playlist">
+                <?php
+                echo '<h4>Bienvenido, esta es tu visita número ' . $visit_count . '.</h4>';
+                ?>
                 <h4 class="active"><span></span><i class="bi bi-music-note-beamed"></i> Recomendaciones</h4>
                 <!-- <h4><span></span><i class="bi bi-music-note-beamed"></i> Favoritos</h4> -->
+
             </div>
             <div class="menu_song">
                 <li class="songItem">

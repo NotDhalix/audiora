@@ -16,7 +16,6 @@ if (isset($_SESSION['UsuarioID'])) {
         $profile_image_path = $row['ImagenPerfil'];
     }
 } else {
-    // Si el usuario no está autenticado, redirigir a la página de inicio de sesión
     header("Location: index.php");
     exit();
 }

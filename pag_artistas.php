@@ -4,8 +4,8 @@ session_start();
 include('db_connect.php');
 
 if (isset($_SESSION['UsuarioID'])) {
-    // Recuperar la información del usuario, incluida la ruta de la imagen de perfil
-    $user_id = $_SESSION['UsuarioID']; // Usar UsuarioID
+
+    $user_id = $_SESSION['UsuarioID']; 
     $query = "SELECT NombreUsuario, ImagenPerfil FROM usuarios WHERE UsuarioID = $user_id LIMIT 1";
     $result = mysqli_query($con, $query);
 
@@ -14,7 +14,7 @@ if (isset($_SESSION['UsuarioID'])) {
         $profile_image_path = $row['ImagenPerfil'];
     }
 } else {
-    // Si el usuario no está autenticado, redirigir a la página de inicio de sesión
+
     header("Location: index.php");
     exit();
 }

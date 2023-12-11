@@ -8,9 +8,9 @@ $database_name = "audiora";
 $con  = mysqli_connect($server_name, $user_name, $user_pass, $database_name);
 
 if (!$con) {
-    die('Connection Failed');
+    die('Conexion Fallida');
 }
 
 // else {
-//     echo ('Database Succesfully Connected');
+//     echo ('Conectado);
 // }

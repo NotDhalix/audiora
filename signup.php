@@ -12,7 +12,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
 
     if (!empty($user_name) && !empty($user_email) && !empty($user_password) &&  !is_numeric($user_name)) {
         if ($user_password === $user_re_password) {
-            // Hash de la contraseña antes de almacenarla en la base de datos
+
             $hashed_password = password_hash($user_password, PASSWORD_DEFAULT);
 
             $query = "INSERT INTO usuarios (NombreUsuario, Correo, Contraseña, ImagenPerfil) VALUES ('$user_name', '$user_email', '$hashed_password', '$ImagenPerfil')";
@@ -71,7 +71,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
         </div>
         <div class="right_bx1">
             <img src="login_png.jpg" alt="">
-            <!-- <h3>Inccorect Password</h3> -->
+            <!-- <h3>Contra Incorrecta</h3> -->
             <?php
             echo ('<h3>' . $msg . '</h3>');
             ?>

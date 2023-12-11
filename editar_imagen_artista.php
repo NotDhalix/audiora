@@ -10,7 +10,7 @@ if (!isset($_SESSION['UsuarioID'])) {
 
 $user_id = $_SESSION['UsuarioID'];
 
-// Obtener información del artista desde la base de datos
+
 if (isset($_GET['id'])) {
     $artist_id = $_GET['id'];
     $query = "SELECT * FROM artistas WHERE ArtistaID = '$artist_id' AND UsuarioID = '$user_id'";
@@ -20,12 +20,12 @@ if (isset($_GET['id'])) {
         $artist_name = $row['NombreArtista'];
         $current_image_path = $row['RutaImagenArtista'];
     } else {
-        // Manejar el caso en que no se pueda recuperar la información del artista
+
         header('Location: pag_artistas.php');
         exit();
     }
 } else {
-    // Manejar el caso en que no se proporcione el ID del artista
+
     header('Location: pag_artistas.php');
     exit();
 }

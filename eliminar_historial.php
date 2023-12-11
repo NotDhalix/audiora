@@ -5,7 +5,7 @@ include('db_connect.php');
 if (isset($_SESSION['UsuarioID'])) {
     $user_id = $_SESSION['UsuarioID'];
 
-    // Delete user's history records
+
     $query = "DELETE FROM historialreproduccion WHERE UsuarioID = '$user_id'";
     $result = mysqli_query($con, $query);
 

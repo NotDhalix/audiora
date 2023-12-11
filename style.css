@@ -466,16 +466,16 @@ header .song_side nav ul li {
   margin-right: 25px;
   cursor: pointer;
   transition: 0.3s linear;
-  color: #888; /* Color gris para enlaces inactivos */
+  color: #888; 
 }
 header .song_side nav ul li a {
-  text-decoration: none; /* Quitar subrayado */
-  color: #888; /* Color gris para enlaces inactivos */
+  text-decoration: none;
+  color: #888; 
 }
 
 header .song_side nav ul li a:hover,
 header .song_side nav ul li.active a {
-  color: #fff; /* Color blanco para el enlace activo y en hover */
+  color: #fff; 
 }
 
 header .song_side nav ul li span {
@@ -488,9 +488,9 @@ header .song_side nav ul li span {
   border-radius: 20px;
 }
 
-/* Agregar un estilo para el enlace activo */
+
 header .song_side nav ul li.active span {
-  background: #36e2ec; /* Color de fondo para el enlace activo */
+  background: #36e2ec; 
 }
 
 header .song_side nav .search {
@@ -584,7 +584,7 @@ header .song_side nav .search input {
   margin-top: 10px;
   width: 32px;
   height: auto;
-  border-radius: 50%; /* Hace que la imagen sea circular */
+  border-radius: 50%; 
   cursor: pointer;
 }
 

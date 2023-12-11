@@ -47,3 +47,18 @@
 - Abre tu navegador y ve a http://localhost/tu-proyecto/.
 
 ## ¡Listo! Ahora deberías ver tu proyecto en ejecución.
+
+> Debes aumentar el valor de max_allowed_packet en la configuración de MySQL.
+
+Sigue estos pasos:
+
+- Abre el archivo de configuración de MySQL (my.ini o my.cnf). Puedes encontrar este archivo en el directorio de configuración de MySQL.
+
+- Encuentra la sección [mysqld] en el archivo.
+
+- Agrega o modifica la siguiente línea para aumentar el valor de max_allowed_packet. Por ejemplo:
+
+`max_allowed_packet = 128M`
+- Ajusta el valor (128M en este ejemplo) según tus necesidades y la cantidad de datos que esperas manejar.
+
+- Guarda el archivo y reinicia el servidor MySQL para que los cambios surtan efecto.

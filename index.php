@@ -23,8 +23,11 @@ if (isset($_POST['user_name'])) {
 
 
         if (password_verify($user_password, $hashed_password)) {
- 
-            $_SESSION['UsuarioID'] = $row['UsuarioID']; 
+
+            $_SESSION['UsuarioID'] = $row['UsuarioID'];
+            if (isset($_POST['remember_session']) && $_POST['remember_session'] == 'on') {
+                setcookie('remember_user', $row['UsuarioID'], time() + (86400 * 30), "/");
+            }
             header('Location: welcome.php');
             exit();
         } else {
@@ -57,7 +60,7 @@ if (isset($_POST['user_name'])) {
                     <h3>Iniciar Sesión</h3>
                     <div class="card">
                         <label for="name">Nombre</label>
-                        <input type="text" name="user_name" placeholder="" required>
+                        <input type="text" name="user_name" placeholder="" value="<?php echo isset($_COOKIE['remember_user']) ? $_COOKIE['remember_user'] : ''; ?>" required>
                     </div>
                     <div class="card">
                         <label for="password">Contraseña</label>
@@ -65,6 +68,8 @@ if (isset($_POST['user_name'])) {
                     </div>
                     <input type="submit" value="Iniciar sesión" class="submit">
                     <div class="check">
+                        <input type="checkbox" name="remember_session" id="remember_session">
+                        <label for="remember_session">Recordar Sesión.</label>
                     </div>
                     <p>¿No tienes una cuenta? <a href="signup.php">Registrate aquí.</a></p>
                 </form>

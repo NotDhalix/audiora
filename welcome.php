@@ -3,13 +3,11 @@ session_start();
 
 include('db_connect.php');
 
-// Realizar un seguimiento de las visitas
 $visit_count = isset($_COOKIE['visit_count']) ? $_COOKIE['visit_count'] + 1 : 1;
-setcookie('visit_count', $visit_count, time() + 86400 * 30, '/'); // Cookie válida por 30 días
+setcookie('visit_count', $visit_count, time() + 86400 * 30, '/'); //cookie válida por 30 días
 
 if (isset($_SESSION['UsuarioID'])) {
-    // Recuperar la información del usuario, incluida la ruta de la imagen de perfil
-    $user_id = $_SESSION['UsuarioID']; // Usar UsuarioID
+    $user_id = $_SESSION['UsuarioID'];
     $query = "SELECT NombreUsuario, ImagenPerfil FROM usuarios WHERE UsuarioID = $user_id LIMIT 1";
     $result = mysqli_query($con, $query);
 
@@ -120,8 +118,10 @@ if (isset($_SESSION['UsuarioID'])) {
                     <li class="active"><a href="pag_descubrir.php">Descubrir<span></span></a></li>
                     <li><a href="pag_canciones.php">Canciones</a></li>
                     <li><a href="pag_artistas.php">Artistas</a></li>
+
                     <?php if ($_SESSION['UsuarioID'] == 1) { ?>
                         <li><a href="admin_panel.php">Admin Panel</a></li>
+                        <li><a href="api.php">API</a></li>
                     <?php } ?>
                 </ul>
                 <div class="search">

@@ -165,8 +165,7 @@ document.addEventListener("DOMContentLoaded", function () {
     xhr.setRequestHeader("Content-type", "application/x-www-form-urlencoded");
 
     xhr.onreadystatechange = function () {
-      if (xhr.readyState === 4 && xhr.status === 200) {
-        // Handle the response if needed
+      if (xhr.readyState === 4 && xhr.status === 200) { 
         console.log(xhr.responseText);
       }
     };

@@ -467,11 +467,11 @@ header .song_side nav ul li {
   margin-right: 25px;
   cursor: pointer;
   transition: 0.3s linear;
-  color: #888; 
+  color: #888;
 }
 header .song_side nav ul li a {
-  text-decoration: none; 
-  color: #888; 
+  text-decoration: none;
+  color: #888;
 }
 
 header .song_side nav ul li a:hover,
@@ -490,7 +490,7 @@ header .song_side nav ul li span {
 }
 
 header .song_side nav ul li.active span {
-  background: #36e2ec; 
+  background: #36e2ec;
 }
 
 header .song_side nav .search {
@@ -815,7 +815,6 @@ header .right_bx1 h3 {
 
 .canciones-table th,
 .canciones-table td {
-  border: 1px solid #ddd;
   padding: 4px;
   text-align: left;
 }
@@ -871,8 +870,8 @@ header .right_bx1 h3 {
 }
 
 .cancion-row .cancion-image-container {
-  width: 100px; 
-  height: 100px; 
+  width: 100px;
+  height: 100px;
   overflow: hidden;
 }
 
@@ -880,7 +879,6 @@ header .right_bx1 h3 {
   width: 120px;
   height: 120px;
 }
-
 
 .canciones-table th,
 .canciones-table td,
@@ -891,7 +889,7 @@ header .right_bx1 h3 {
 
 #canciones-container {
   padding: 20px;
-  max-height: 550px; 
+  max-height: 550px;
   overflow-y: auto;
 }
 
@@ -923,7 +921,7 @@ header .right_bx1 h3 {
   position: absolute;
   top: 5px;
   right: 5px;
-  font-size: 1.5em; 
+  font-size: 1.5em;
   color: white;
 }
 
@@ -934,7 +932,7 @@ header .right_bx1 h3 {
   object-fit: cover;
   border-radius: 8px;
   margin-bottom: 10px;
-  margin-right: 10px; 
+  margin-right: 10px;
   box-shadow: 10px 10px 10px rgba(0, 0, 0, 0.5);
 }
 

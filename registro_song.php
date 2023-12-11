@@ -41,7 +41,9 @@
                         <label for="duracion">Duración</label>
                         <input type="text" name="duracion" placeholder="00:00" required>
                     </div> -->
+                    <input hidden type="file" name="imagen_artista" placeholder="" value="img/pre-avatar.jpg">
                     <input type="submit" value="Registrar Canción" class="submit">
+
                 </form>
 
             </div>

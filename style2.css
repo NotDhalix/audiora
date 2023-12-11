@@ -897,3 +897,57 @@ header .right_bx1 h3 {
 #canciones-container::-webkit-scrollbar {
   display: none;
 }
+
+.artist-container {
+  overflow-y: auto;
+  max-height: 600px;
+  padding: 20px;
+}
+.artist-container::-webkit-scrollbar {
+  display: none;
+}
+
+.artist-card {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  margin-bottom: 20px;
+}
+
+.edit-artist-btn {
+  background-color: transparent;
+  border: none;
+  cursor: pointer;
+  position: absolute;
+  top: 5px;
+  right: 5px;
+  font-size: 1.5em; /* Ajusta el tamaño según tus preferencias */
+  color: white; /* Color blanco */
+}
+
+.artist-card img {
+  width: 40%;
+  height: auto;
+  max-height: 300px;
+  object-fit: cover;
+  border-radius: 8px;
+  margin-bottom: 10px;
+  margin-right: 10px; /* Agrega espacio a la derecha de la imagen */
+  box-shadow: 10px 10px 10px rgba(0, 0, 0, 0.5);
+}
+
+.artist-card p {
+  margin: 0 auto;
+  font-size: larger;
+}
+
+.artist-songs {
+  margin-top: 10px;
+}
+
+hr {
+  width: 100%;
+  margin: 15px 0;
+  border: 0.5px solid #dddddd41;
+}

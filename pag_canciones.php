@@ -30,7 +30,7 @@ if (isset($_SESSION['UsuarioID'])) {
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.8.3/font/bootstrap-icons.css">
     <link rel="stylesheet" href="style2.css">
     <link rel="stylesheet" href="media.css">
-    <title>Audiora Music</title>
+    <title>Audiora Music | Canciones</title>
 </head>
 
 <body>
@@ -118,7 +118,7 @@ if (isset($_SESSION['UsuarioID'])) {
             <div class="content">
                 <div class="buttons">
                     <a href="registro_song.php"><button>AGREGAR CANCION</button></a>
-                    <button>FOLLOW</button>
+                    <button>ALEATORIO</button>
                 </div>
             </div>
             <!-- En pag_canciones.php -->
@@ -149,10 +149,10 @@ if (isset($_SESSION['UsuarioID'])) {
                         echo '<td>' . $row['Artista'] . '</td>';
                         echo '<td><audio controls id="audio' . $row['CancionID'] . '" data-cancion-id="' . $row['CancionID'] . '" data-audio-source="data:audio/mp3;base64,' . base64_encode($row['audio']) . '"><source src="data:audio/mp3;base64,' . base64_encode($row['audio']) . '"></audio></td>';
                         echo '<td>';
-                        echo '<button id="btn-reproducir" class="play-button" data-cancion-id="' . $row['CancionID'] . '" data-titulo="' . $row['Titulo'] . '" data-artista="' . $row['Artista'] . '" data-imagen="' . base64_encode($row['ImagenCancion']) . '" data-audio-source="data:audio/mp3;base64,' . base64_encode($row['audio']) . '"><i class="bi playListPlay bi-play-circle-fill"></i></button>';
-                        echo '<button id="btn-pausa" class="pause-button" data-cancion-id="' . $row['CancionID'] . '" data-titulo="' . $row['Titulo'] . '" data-artista="' . $row['Artista'] . '" data-imagen="' . base64_encode($row['ImagenCancion']) . '" data-audio-source="data:audio/mp3;base64,' . base64_encode($row['audio']) . '"><i class="bi bi-pause-fill"></i></button>';
-                        echo '<a href="editar_cancion.php?cancion_id=' . $row['CancionID'] . '" class="btn-editar"><i class="bi bi-pencil-square"></i></a>';
-                        echo '<a href="#" class="btn-eliminar" onclick="confirmarEliminar(' . $row['CancionID'] . ')"><i class="bi bi-trash3-fill"></i></a>';
+                        echo '<button id="btn-reproducir" title="Reproducir Canción" class="play-button" data-cancion-id="' . $row['CancionID'] . '" data-titulo="' . $row['Titulo'] . '" data-artista="' . $row['Artista'] . '" data-imagen="' . base64_encode($row['ImagenCancion']) . '" data-audio-source="data:audio/mp3;base64,' . base64_encode($row['audio']) . '"><i class="bi playListPlay bi-play-circle-fill"></i></button>';
+                        echo '<button id="btn-pausa" title="Pausar Canción" class="pause-button" data-cancion-id="' . $row['CancionID'] . '" data-titulo="' . $row['Titulo'] . '" data-artista="' . $row['Artista'] . '" data-imagen="' . base64_encode($row['ImagenCancion']) . '" data-audio-source="data:audio/mp3;base64,' . base64_encode($row['audio']) . '"><i class="bi bi-pause-fill"></i></button>';
+                        echo '<a title="Editar Canción" href="editar_cancion.php?cancion_id=' . $row['CancionID'] . '" class="btn-editar"><i class="bi bi-pencil-square"></i></a>';
+                        echo '<a title="Eliminar Canción" href="#" class="btn-eliminar" onclick="confirmarEliminar(' . $row['CancionID'] . ')"><i class="bi bi-trash3-fill"></i></a>';
                         echo '</td>';
                         echo '</tr>';
                     }

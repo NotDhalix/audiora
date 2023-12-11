@@ -12,7 +12,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     $nueva_imagen_temporal = $_FILES['nueva_imagen_artista']['tmp_name'];
     $nueva_imagen = addslashes(file_get_contents($nueva_imagen_temporal));
 
-    // Actualizar la imagen del artista
+
     $query_update_artist_image = "UPDATE artistas SET RutaImagenArtista = '$nueva_imagen' WHERE UsuarioID = '$user_id'";
     $result_update_artist_image = mysqli_query($con, $query_update_artist_image);
 

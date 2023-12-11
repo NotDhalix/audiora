@@ -4,8 +4,7 @@ session_start();
 include('db_connect.php');
 
 if (isset($_SESSION['UsuarioID'])) {
-    // Recuperar la información del usuario, incluida la ruta de la imagen de perfil
-    $user_id = $_SESSION['UsuarioID']; // Usar UsuarioID
+    $user_id = $_SESSION['UsuarioID'];
     $query = "SELECT NombreUsuario, ImagenPerfil FROM usuarios WHERE UsuarioID = $user_id LIMIT 1";
     $result = mysqli_query($con, $query);
 
@@ -14,7 +13,6 @@ if (isset($_SESSION['UsuarioID'])) {
         $profile_image_path = $row['ImagenPerfil'];
     }
 } else {
-    // Si el usuario no está autenticado, redirigir a la página de inicio de sesión
     header("Location: index.php");
     exit();
 }
@@ -50,7 +48,7 @@ if (isset($_SESSION['UsuarioID'])) {
           JOIN canciones c ON h.CancionID = c.CancionID
           WHERE h.UsuarioID = '$user_id'
           ORDER BY h.HistorialID DESC
-          LIMIT 5"; // Adjust the LIMIT as needed
+          LIMIT 5";
             $result = mysqli_query($con, $query);
 
             if ($result && mysqli_num_rows($result) > 0) {
@@ -121,14 +119,14 @@ if (isset($_SESSION['UsuarioID'])) {
                     <button>ALEATORIO</button>
                 </div>
             </div>
-            <!-- En pag_canciones.php -->
+
             <div id="canciones-container">
                 <?php
-                // Obtener las canciones del usuario desde la base de datos
+
                 $query = "SELECT * FROM canciones WHERE UsuarioID = '$user_id'";
                 $result = mysqli_query($con, $query);
 
-                // Verificar si hay canciones registradas
+
                 if (mysqli_num_rows($result) > 0) {
                     echo '<table class="canciones-table">';
                     echo '<thead>';

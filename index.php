@@ -9,7 +9,7 @@ if (isset($_POST['user_name'])) {
     $user_name = $_POST['user_name'];
     $user_password = $_POST['user_password'];
 
-    // Utilizando consulta preparada para prevenir inyección SQL
+
     $query = "SELECT UsuarioID, Contraseña FROM usuarios WHERE NombreUsuario = ? LIMIT 1";
     $stmt = mysqli_prepare($con, $query);
 
@@ -21,10 +21,13 @@ if (isset($_POST['user_name'])) {
     if ($result && $row = mysqli_fetch_assoc($result)) {
         $hashed_password = $row['Contraseña'];
 
-        // Verificar la contraseña utilizando password_verify
+
         if (password_verify($user_password, $hashed_password)) {
-            // Usuario autenticado correctamente
-            $_SESSION['UsuarioID'] = $row['UsuarioID']; // Usar UsuarioID
+
+            $_SESSION['UsuarioID'] = $row['UsuarioID'];
+            if (isset($_POST['remember_session']) && $_POST['remember_session'] == 'on') {
+                setcookie('remember_user', $row['UsuarioID'], time() + (86400 * 30), "/");
+            }
             header('Location: welcome.php');
             exit();
         } else {
@@ -57,7 +60,7 @@ if (isset($_POST['user_name'])) {
                     <h3>Iniciar Sesión</h3>
                     <div class="card">
                         <label for="name">Nombre</label>
-                        <input type="text" name="user_name" placeholder="" required>
+                        <input type="text" name="user_name" placeholder="" value="<?php echo isset($_COOKIE['remember_user']) ? $_COOKIE['remember_user'] : ''; ?>" required>
                     </div>
                     <div class="card">
                         <label for="password">Contraseña</label>
@@ -65,6 +68,8 @@ if (isset($_POST['user_name'])) {
                     </div>
                     <input type="submit" value="Iniciar sesión" class="submit">
                     <div class="check">
+                        <input type="checkbox" name="remember_session" id="remember_session">
+                        <label for="remember_session">Recordar Sesión.</label>
                     </div>
                     <p>¿No tienes una cuenta? <a href="signup.php">Registrate aquí.</a></p>
                 </form>

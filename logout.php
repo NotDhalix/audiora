@@ -1,10 +1,10 @@
 <?php
 session_start();
 
-// Destruye todas las variables de sesión
+setcookie('remember_user', '', time() - 3600, '/');
+setcookie('visit_count', '', time() - 3600, '/');
+
 session_destroy();
 
-// Redirige al usuario al formulario de inicio de sesión
 header("Location: index.php");
 exit();
-?>

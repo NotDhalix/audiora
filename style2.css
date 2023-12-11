@@ -467,16 +467,16 @@ header .song_side nav ul li {
   margin-right: 25px;
   cursor: pointer;
   transition: 0.3s linear;
-  color: #888; /* Color gris para enlaces inactivos */
+  color: #888;
 }
 header .song_side nav ul li a {
-  text-decoration: none; /* Quitar subrayado */
-  color: #888; /* Color gris para enlaces inactivos */
+  text-decoration: none;
+  color: #888;
 }
 
 header .song_side nav ul li a:hover,
 header .song_side nav ul li.active a {
-  color: #fff; /* Color blanco para el enlace activo y en hover */
+  color: #fff;
 }
 
 header .song_side nav ul li span {
@@ -489,9 +489,8 @@ header .song_side nav ul li span {
   border-radius: 20px;
 }
 
-/* Agregar un estilo para el enlace activo */
 header .song_side nav ul li.active span {
-  background: #36e2ec; /* Color de fondo para el enlace activo */
+  background: #36e2ec;
 }
 
 header .song_side nav .search {
@@ -816,7 +815,6 @@ header .right_bx1 h3 {
 
 .canciones-table th,
 .canciones-table td {
-  border: 1px solid #ddd;
   padding: 4px;
   text-align: left;
 }
@@ -871,10 +869,9 @@ header .right_bx1 h3 {
   transition: 0.1s linear;
 }
 
-/* Contenedor para la imagen */
 .cancion-row .cancion-image-container {
-  width: 100px; /* Ajusta el tamaño máximo de la imagen según tus necesidades */
-  height: 100px; /* Establece una altura fija para el contenedor de la imagen */
+  width: 100px;
+  height: 100px;
   overflow: hidden;
 }
 
@@ -883,7 +880,6 @@ header .right_bx1 h3 {
   height: 120px;
 }
 
-/* Alineación a la izquierda */
 .canciones-table th,
 .canciones-table td,
 .btn-editar,
@@ -893,7 +889,7 @@ header .right_bx1 h3 {
 
 #canciones-container {
   padding: 20px;
-  max-height: 550px; /* Ajusta esta altura según sea necesario */
+  max-height: 550px;
   overflow-y: auto;
 }
 
@@ -925,8 +921,8 @@ header .right_bx1 h3 {
   position: absolute;
   top: 5px;
   right: 5px;
-  font-size: 1.5em; /* Ajusta el tamaño según tus preferencias */
-  color: white; /* Color blanco */
+  font-size: 1.5em;
+  color: white;
 }
 
 .artist-card img {
@@ -936,7 +932,7 @@ header .right_bx1 h3 {
   object-fit: cover;
   border-radius: 8px;
   margin-bottom: 10px;
-  margin-right: 10px; /* Agrega espacio a la derecha de la imagen */
+  margin-right: 10px;
   box-shadow: 10px 10px 10px rgba(0, 0, 0, 0.5);
 }
 

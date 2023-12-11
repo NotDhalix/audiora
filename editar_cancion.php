@@ -8,16 +8,16 @@ if (!isset($_SESSION['UsuarioID'])) {
     exit();
 }
 
-// Obtener el ID de la canción que se está editando, asumiendo que se pasa a través de la URL
+
 if (isset($_GET['cancion_id'])) {
     $cancion_id = $_GET['cancion_id'];
 } else {
-    // Manejar el caso en que no se proporciona un CancionID válido
+
     header('Location: pag_canciones.php');
     exit();
 }
 
-// Obtener la información de la canción para prellenar el formulario
+
 $query = "SELECT * FROM canciones WHERE CancionID = ?";
 $stmt = $con->prepare($query);
 $stmt->bind_param('i', $cancion_id);
@@ -27,7 +27,7 @@ $result = $stmt->get_result();
 if ($result->num_rows === 1) {
     $cancion = $result->fetch_assoc();
 } else {
-    // Manejar el caso en que no se encuentra la canción
+
     header('Location: pag_canciones.php');
     exit();
 }
@@ -60,19 +60,17 @@ $stmt->close();
                     </div>
                     <input type="hidden" name="cancion_id" value="<?php echo $cancion['CancionID']; ?>">
 
-                    <!-- Muestra la imagen actual -->
                     <div class="card">
                         <label>Imagen actual:</label>
                         <img src="data:image/jpg;base64,<?php echo base64_encode($cancion['ImagenCancion']); ?>" alt="Imagen actual">
                     </div>
 
-                    <!-- Campo para cargar una nueva imagen -->
                     <div class="card">
                         <label for="imagen_cancion">Nueva imagen de la Canción</label>
                         <input type="file" name="imagen_cancion" accept="image/*">
                     </div>
 
-                    <!-- Otros campos del formulario -->
+
                     <div class="card">
                         <label for="titulo_cancion">Título de la Canción</label>
                         <input type="text" name="titulo_cancion" value="<?php echo htmlspecialchars($cancion['Titulo']); ?>">

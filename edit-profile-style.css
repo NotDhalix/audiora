@@ -29,9 +29,9 @@ header .left_bx1 .content .titulo {
 
 header .left_bx1 .content .card {
   width: 100%;
-  display: flex; /* Centra verticalmente los elementos del contenedor */
-  flex-direction: column; /* Alinea los elementos en columna */
-  justify-content: center; /* Centra horizontalmente los elementos del contenedor */
+  display: flex;
+  flex-direction: column; 
+  justify-content: center; 
   margin-top: 20px;
 }
 
@@ -40,7 +40,7 @@ header .left_bx1 .content .card img {
   max-width: 25%;
   height: auto;
   margin-bottom: 10px;
-  border-radius: 50%; /* Hace que la imagen sea circular */
+  border-radius: 50%;
 }
 
 header .left_bx1 .content .card input {
@@ -66,7 +66,7 @@ header .left_bx1 .content .card.password input[type="text"] {
   background: transparent;
 }
 
-/* Agregado para centrar el formulario en dispositivos pequeños */
+
 @media (max-width: 768px) {
   header .left_bx1 {
     width: 80%;

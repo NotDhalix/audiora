@@ -9,7 +9,7 @@ if (isset($_POST['user_name'])) {
     $user_name = $_POST['user_name'];
     $user_password = $_POST['user_password'];
 
-    // Utilizando consulta preparada para prevenir inyección SQL
+
     $query = "SELECT UsuarioID, Contraseña FROM usuarios WHERE NombreUsuario = ? LIMIT 1";
     $stmt = mysqli_prepare($con, $query);
 
@@ -21,10 +21,10 @@ if (isset($_POST['user_name'])) {
     if ($result && $row = mysqli_fetch_assoc($result)) {
         $hashed_password = $row['Contraseña'];
 
-        // Verificar la contraseña utilizando password_verify
+
         if (password_verify($user_password, $hashed_password)) {
-            // Usuario autenticado correctamente
-            $_SESSION['UsuarioID'] = $row['UsuarioID']; // Usar UsuarioID
+ 
+            $_SESSION['UsuarioID'] = $row['UsuarioID']; 
             header('Location: welcome.php');
             exit();
         } else {

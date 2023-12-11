@@ -15,7 +15,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     $archivo_temporal_imagen = $_FILES['new_image']['tmp_name'];
     $archivo_imagen = fopen($archivo_temporal_imagen, 'rb');
 
-    // Actualizar la imagen del artista en la base de datos
+
     $query_update_image = "UPDATE artistas SET RutaImagenArtista = ? WHERE ArtistaID = ? AND UsuarioID = ?";
     $stmt_update_image = $con->prepare($query_update_image);
     $stmt_update_image->bind_param('bii', $archivo_imagen, $artist_id, $user_id);
@@ -28,7 +28,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     header('Location: pag_artistas.php');
     exit();
 } else {
-    // Redirigir si no es una solicitud POST
+
     header('Location: pag_artistas.php');
     exit();
 }

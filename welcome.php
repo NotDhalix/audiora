@@ -112,6 +112,9 @@ if (isset($_SESSION['UsuarioID'])) {
                     <li class="active"><a href="pag_descubrir.php">Descubrir<span></span></a></li>
                     <li><a href="pag_canciones.php">Canciones</a></li>
                     <li><a href="pag_artistas.php">Artistas</a></li>
+                    <?php if ($_SESSION['UsuarioID'] == 1) { ?>
+                        <li><a href="admin_panel.php">Admin Panel</a></li>
+                    <?php } ?>
                 </ul>
                 <div class="search">
                     <i class="bi bi-search"></i>

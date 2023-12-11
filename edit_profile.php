@@ -10,7 +10,6 @@ if (!isset($_SESSION['UsuarioID'])) {
 
 $user_id = $_SESSION['UsuarioID'];
 
-// Obtener información del usuario desde la base de datos
 $query = "SELECT * FROM usuarios WHERE UsuarioID = '$user_id' LIMIT 1";
 $result = mysqli_query($con, $query);
 
@@ -19,7 +18,7 @@ if ($result && $row = mysqli_fetch_assoc($result)) {
     $user_email_db = $row['Correo'];
     $profile_image_path_db = $row['ImagenPerfil'];
 } else {
-    // Manejar el caso en que no se pueda recuperar la información del usuario
+
     header('Location: index.php');
     exit();
 }

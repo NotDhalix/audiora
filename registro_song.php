@@ -30,6 +30,10 @@
                         <input type="text" name="artista_cancion" required>
                     </div>
                     <div class="card">
+                        <label for="artista_colab_cancion">Artistas Colaboradores</label>
+                        <input type="text" name="artista_colab_cancion" required>
+                    </div>
+                    <div class="card">
                         <label for="archivo_audio">Archivo de Audio</label>
                         <input type="file" name="archivo_audio" accept="audio/*" required>
                     </div>
@@ -41,7 +45,9 @@
                         <label for="duracion">Duración</label>
                         <input type="text" name="duracion" placeholder="00:00" required>
                     </div> -->
+                    <input hidden type="file" name="imagen_artista" placeholder="" value="img/pre-avatar.jpg">
                     <input type="submit" value="Registrar Canción" class="submit">
+
                 </form>
 
             </div>

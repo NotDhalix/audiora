@@ -47,12 +47,12 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST' && isset($_POST['cancion_id'])) {
     // Otros campos del formulario (actualiza según tus necesidades)
     $titulo_cancion = $_POST['titulo_cancion'];
     $artista_cancion = $_POST['artista_cancion'];
-    $duracion = $_POST['duracion'];
+    $artista_cancion_colab = $_POST['artista_colab_cancion'];
 
     // Actualizar otros campos de la canción
     $query = "UPDATE canciones SET Titulo = ?, Artista = ?, Duracion = ? WHERE CancionID = ?";
     $stmt = $con->prepare($query);
-    $stmt->bind_param('sssi', $titulo_cancion, $artista_cancion, $duracion, $cancion_id);
+    $stmt->bind_param('sssi', $titulo_cancion, $artista_cancion, $artista_cancion_colab, $cancion_id);
     $stmt->execute();
     $stmt->close();
 

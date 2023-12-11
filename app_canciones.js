@@ -156,15 +156,30 @@ document.addEventListener("DOMContentLoaded", function () {
 
     actualizarMasterPlay(songInfo);
     reproducirEnMasterPlay();
+    addToSongHistory(songInfo.cancionId);
   }
+  function addToSongHistory(cancionId) {
+    // Make an AJAX request to a PHP script that adds the song to the user's history
+    let xhr = new XMLHttpRequest();
+    xhr.open("POST", "addToHistory.php", true);
+    xhr.setRequestHeader("Content-type", "application/x-www-form-urlencoded");
 
+    xhr.onreadystatechange = function () {
+      if (xhr.readyState === 4 && xhr.status === 200) {
+        // Handle the response if needed
+        console.log(xhr.responseText);
+      }
+    };
+
+    // Send the request with the song ID
+    xhr.send("cancionId=" + encodeURIComponent(cancionId));
+  }
   function pausarCancion() {
     if (currentAudioInstance) {
       currentPosition = currentAudioInstance.currentTime; // Almacena la posición actual antes de pausar
       currentAudioInstance.pause();
     }
   }
-  
   actualizarMasterPlay(songInfo);
   reproducirEnMasterPlay();
   function actualizarMasterPlay(songInfo) {

@@ -30,7 +30,7 @@ if (isset($_SESSION['UsuarioID'])) {
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.8.3/font/bootstrap-icons.css">
     <link rel="stylesheet" href="style2.css">
     <link rel="stylesheet" href="media.css">
-    <title>Audiora Music</title>
+    <title>Audiora Music | Canciones</title>
 </head>
 
 <body>
@@ -45,16 +45,34 @@ if (isset($_SESSION['UsuarioID'])) {
                 <h4 class="active"><span></span><i class="bi bi-music-note-beamed"></i> Historial</h4>
                 <h4><span></span><i class="bi bi-music-note-beamed"></i> Favoritos</h4>
             </div>
-            <div class="menu_song">
-                <!-- <li class="songItem">
-                    <span>01</span>
-                    <img src="img/1.jpg" alt="">
-                    <h5>On My Way <br>
-                        <div class="subtitle">Alan Walker</div>
-                    </h5>
-                    <i class="bi playListPlay bi-play-circle-fill" id="1"></i>
-                </li> -->
-            </div>
+            <?php
+            $query = "SELECT h.*, c.Titulo, c.Artista, c.ImagenCancion FROM historialreproduccion h
+          JOIN canciones c ON h.CancionID = c.CancionID
+          WHERE h.UsuarioID = '$user_id'
+          ORDER BY h.HistorialID DESC
+          LIMIT 5"; // Adjust the LIMIT as needed
+            $result = mysqli_query($con, $query);
+
+            if ($result && mysqli_num_rows($result) > 0) {
+                echo '<div class="menu_song">';
+
+                $counter = 01;
+                while ($row = mysqli_fetch_assoc($result)) {
+                    echo '<li class="songItem">';
+                    echo '<span>' . $counter . '</span>';
+                    echo '<img src="data:image/jpg;base64,' . base64_encode($row['ImagenCancion']) . '" alt="">';
+                    echo '<h5>' . $row['Titulo'] . '<br><div class="subtitle">' . $row['Artista'] . '</div></h5>';
+                    echo '<i class="bi playListPlay bi-play-circle-fill" id="' . $row['CancionID'] . '"></i>';
+                    echo '</li>';
+                    $counter++;
+                }
+                echo '<a href="#" class="btn-eliminar" onclick="confirmarEliminarHistorial()"><i class="bi bi-trash3-fill"></i></a>';
+                echo '</div>';
+            } else {
+                echo '<p style="margin-left:20px; ">No has reproducido ninguna canción.</p>';
+            }
+            ?>
+
         </div>
         <div class="song_side">
             <nav>
@@ -77,7 +95,13 @@ if (isset($_SESSION['UsuarioID'])) {
                     </div>
                 </div>
                 <div id="profile-container">
-                    <img src="data:image/jpg;base64,<?php echo base64_encode($row['ImagenPerfil']) ?>" alt="Imagen de perfil" id="profile-image">
+                    <?php
+                    if (!empty($profile_image_path)) {
+                        echo '<img src="data:image/jpg;base64,' . base64_encode($profile_image_path) . '" alt="Imagen de perfil" id="profile-image">';
+                    } else {
+                        echo '<img src="path/to/default/image.jpg" alt="Imagen de perfil por defecto" id="profile-image">';
+                    }
+                    ?>
                     <div id="profile-menu">
                         <ul>
                             <a href="edit_profile.php">
@@ -94,7 +118,7 @@ if (isset($_SESSION['UsuarioID'])) {
             <div class="content">
                 <div class="buttons">
                     <a href="registro_song.php"><button>AGREGAR CANCION</button></a>
-                    <button>FOLLOW</button>
+                    <button>ALEATORIO</button>
                 </div>
             </div>
             <!-- En pag_canciones.php -->
@@ -112,7 +136,8 @@ if (isset($_SESSION['UsuarioID'])) {
                     echo '<th>Imagen</th>';
                     echo '<th>Título</th>';
                     echo '<th>Artista</th>';
-                    echo '<th>Audio</th>';
+                    echo '<th>Colaborador</th>';
+                    echo '<th id="Audio">Audio</th>';
                     echo '<th>Acciones</th>';
                     echo '</tr>';
                     echo '</thead>';
@@ -123,12 +148,13 @@ if (isset($_SESSION['UsuarioID'])) {
                         echo '<td class="cancion-image-container"><img src="data:image/jpg;base64,' . base64_encode($row['ImagenCancion']) . '" alt="Imagen de la canción"></td>';
                         echo '<td>' . $row['Titulo'] . '</td>';
                         echo '<td>' . $row['Artista'] . '</td>';
+                        echo '<td>' . $row['Artista Colaborador'] . '</td>';
                         echo '<td><audio controls id="audio' . $row['CancionID'] . '" data-cancion-id="' . $row['CancionID'] . '" data-audio-source="data:audio/mp3;base64,' . base64_encode($row['audio']) . '"><source src="data:audio/mp3;base64,' . base64_encode($row['audio']) . '"></audio></td>';
                         echo '<td>';
-                        echo '<button id="btn-reproducir" class="play-button" data-cancion-id="' . $row['CancionID'] . '" data-titulo="' . $row['Titulo'] . '" data-artista="' . $row['Artista'] . '" data-imagen="' . base64_encode($row['ImagenCancion']) . '" data-audio-source="data:audio/mp3;base64,' . base64_encode($row['audio']) . '"><i class="bi playListPlay bi-play-circle-fill"></i></button>';
-                        echo '<button id="btn-pausa" class="pause-button" data-cancion-id="' . $row['CancionID'] . '" data-titulo="' . $row['Titulo'] . '" data-artista="' . $row['Artista'] . '" data-imagen="' . base64_encode($row['ImagenCancion']) . '" data-audio-source="data:audio/mp3;base64,' . base64_encode($row['audio']) . '"><i class="bi bi-pause-fill"></i></button>';
-                        echo '<a href="editar_cancion.php?cancion_id=' . $row['CancionID'] . '" class="btn-editar"><i class="bi bi-pencil-square"></i></a>';
-                        echo '<a href="#" class="btn-eliminar" onclick="confirmarEliminar(' . $row['CancionID'] . ')"><i class="bi bi-trash3-fill"></i></a>';
+                        echo '<button id="btn-reproducir" title="Reproducir Canción" class="play-button" data-cancion-id="' . $row['CancionID'] . '" data-titulo="' . $row['Titulo'] . '" data-artista="' . $row['Artista'] . '" data-imagen="' . base64_encode($row['ImagenCancion']) . '" data-audio-source="data:audio/mp3;base64,' . base64_encode($row['audio']) . '"><i class="bi playListPlay bi-play-circle-fill"></i></button>';
+                        echo '<button id="btn-pausa" title="Pausar Canción" class="pause-button" data-cancion-id="' . $row['CancionID'] . '" data-titulo="' . $row['Titulo'] . '" data-artista="' . $row['Artista'] . '" data-imagen="' . base64_encode($row['ImagenCancion']) . '" data-audio-source="data:audio/mp3;base64,' . base64_encode($row['audio']) . '"><i class="bi bi-pause-fill"></i></button>';
+                        echo '<a title="Editar Canción" href="editar_cancion.php?cancion_id=' . $row['CancionID'] . '" class="btn-editar"><i class="bi bi-pencil-square"></i></a>';
+                        echo '<a title="Eliminar Canción" href="#" class="btn-eliminar" onclick="confirmarEliminar(' . $row['CancionID'] . ')"><i class="bi bi-trash3-fill"></i></a>';
                         echo '</td>';
                         echo '</tr>';
                     }
@@ -179,6 +205,13 @@ if (isset($_SESSION['UsuarioID'])) {
                 window.location.href = 'procesar_borrado_cancion.php?id=' + cancionID;
             }
         }
+
+        function confirmarEliminarHistorial() {
+            if (confirm("¿Estás seguro de que deseas eliminar tu historial?")) {
+                window.location.href = 'eliminar_historial.php';
+            }
+        }
+
 
         let menu_list_active_button = document.getElementById('menu_list_active_button');
         let menu_side = document.getElementsByClassName('menu_side')[0];

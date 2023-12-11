@@ -817,8 +817,11 @@ header .right_bx1 h3 {
 .canciones-table th,
 .canciones-table td {
   border: 1px solid #ddd;
-  padding: 8px;
+  padding: 4px;
   text-align: left;
+}
+.canciones-table #Audio {
+  width: 50px;
 }
 
 .btn-editar,
@@ -849,7 +852,9 @@ header .right_bx1 h3 {
   color: #fff;
   height: 35.6px;
   width: 37.6px;
+  cursor: pointer;
 }
+
 .btn-editar {
   color: #fff;
 }
@@ -858,7 +863,8 @@ header .right_bx1 h3 {
   color: #d9534f;
 }
 
-#btn-reproducir:hover, #btn-pausa:hover,
+#btn-reproducir:hover,
+#btn-pausa:hover,
 .btn-editar:hover,
 .btn-eliminar:hover {
   background-color: #36e2ec;
@@ -867,7 +873,7 @@ header .right_bx1 h3 {
 
 /* Contenedor para la imagen */
 .cancion-row .cancion-image-container {
-  max-width: 100px; /* Ajusta el tamaño máximo de la imagen según tus necesidades */
+  width: 100px; /* Ajusta el tamaño máximo de la imagen según tus necesidades */
   height: 100px; /* Establece una altura fija para el contenedor de la imagen */
   overflow: hidden;
 }
@@ -893,4 +899,58 @@ header .right_bx1 h3 {
 
 #canciones-container::-webkit-scrollbar {
   display: none;
+}
+
+.artist-container {
+  overflow-y: auto;
+  max-height: 600px;
+  padding: 20px;
+}
+.artist-container::-webkit-scrollbar {
+  display: none;
+}
+
+.artist-card {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  margin-bottom: 20px;
+}
+
+.edit-artist-btn {
+  background-color: transparent;
+  border: none;
+  cursor: pointer;
+  position: absolute;
+  top: 5px;
+  right: 5px;
+  font-size: 1.5em; /* Ajusta el tamaño según tus preferencias */
+  color: white; /* Color blanco */
+}
+
+.artist-card img {
+  width: 40%;
+  height: auto;
+  max-height: 300px;
+  object-fit: cover;
+  border-radius: 8px;
+  margin-bottom: 10px;
+  margin-right: 10px; /* Agrega espacio a la derecha de la imagen */
+  box-shadow: 10px 10px 10px rgba(0, 0, 0, 0.5);
+}
+
+.artist-card p {
+  margin: 0 auto;
+  font-size: larger;
+}
+
+.artist-songs {
+  margin-top: 10px;
+}
+
+hr {
+  width: 100%;
+  margin: 15px 0;
+  border: 0.5px solid #dddddd41;
 }

@@ -79,12 +79,12 @@ $stmt->close();
                     </div>
                     <div class="card">
                         <label for="artista_cancion">Artista de la Canción</label>
-                        <input type="text" name="artista_cancion" value="<?php echo htmlspecialchars($cancion['Artista']); ?>">
+                        <input type="text" disabled name="artista_cancion" value="<?php echo htmlspecialchars($cancion['Artista']); ?>">
                     </div>
-                    <!-- <div class="card">
-                        <label for="duracion">Duración</label>
-                        <input type="text" name="duracion" placeholder="00:00" value="<?php echo htmlspecialchars($cancion['Duracion']); ?>">
-                    </div> -->
+                    <div class="card">
+                        <label for="artista_colab_cancion">Artistas Colaboradores</label>
+                        <input type="text" name="artista_colab_cancion" placeholder="" value="<?php echo htmlspecialchars($cancion['Artista Colaborador']); ?>">
+                    </div>
 
                     <input type="submit" value="Actualizar Canción" class="submit">
                 </form>

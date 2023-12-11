@@ -15,7 +15,7 @@
 
 # Configuración del Proyecto y la Base de Datos en XAMPP
 
-##Requisitos previos
+## Requisitos previos
 
 - Asegúrate de tener instalado XAMPP en tu máquina.
 - Clonar o Descargar el Repositorio
